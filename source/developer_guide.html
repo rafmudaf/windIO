@@ -38,10 +38,11 @@
 as well as other community-based groups, research organization, and private companies.
 Being a collaborative effort, it is important to establish a common understanding of the
 rules, responsibilities, and expectations from all stakeholders.
-This document outlines the processes and guidelines for contributing to windIO.</p>
-<p>The windIO repository includes JSON schemas, YAML files that describe wind energy systems
-conforming to the schemas, Python code for working with the schemas and input files,
-source files for web-based documentation, and various other files that serve as infrastructure.
+<strong>This document outlines the processes and guidelines for contributing to windIO.</strong></p>
+<p>The windIO repository includes JSON schemas, YAML and NetCDF files that describe examples
+of wind energy systems conforming to the schemas, Python code for working with the schemas
+and input files, source files for web-based documentation,
+and various other files that serve as infrastructure.
 Changes to anything that is tracked with git in the windIO repository is considered a contribution,
 and these guidelines apply.</p>
 <section id="code-of-conduct">
@@ -56,32 +57,56 @@ Remember that we’re all on the same team despite differences in our day to day
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Wikipedia:Assume_good_faith">Assume good faith.</a></p></li>
 </ul>
 </section>
-<section id="git-flow">
-<h2>Git Flow<a class="headerlink" href="#git-flow" title="Link to this heading">¶</a></h2>
+<section id="contribution-management">
+<h2>Contribution management<a class="headerlink" href="#contribution-management" title="Link to this heading">¶</a></h2>
 <p>Contributions are tracked with <a class="reference external" href="https://docs.github.com/en/get-started/start-your-journey/about-github-and-git#about-git">git</a>
-and coordinated with <a class="reference external" href="https://github.com">GitHub</a>.</p>
+and coordinated with <a class="reference external" href="https://docs.github.com/en/get-started/start-your-journey/about-github-and-git#about-github">GitHub</a>.</p>
 <p>In general, the <a class="reference external" href="https://nvie.com/posts/a-successful-git-branching-model/">git-flow</a> model is used
 to navigate parallel development efforts.
 Here’s a brief summary:</p>
 <ul class="simple">
 <li><p>Day to day work happens on feature branches on the principle repository or forks. The feature
 branches may be unstable, and there’s no expectation that they are complete.
-These branches should have a simple name that is indicative of the scope of the work.</p></li>
-<li><p>The <cite>develop</cite> branch absorbs feature branches when they are complete through pull requests.
-This branch is somewhat stable, but not yet ready to let loose for the general users.</p></li>
-<li><p>The <cite>main</cite> branch is the most stable and tested with the lowest frequency of changes.
+These branches should have a simple name that is indicative of the scope of the work such as
+<cite>feature/support_supersonic_tipspeeds</cite>.</p></li>
+<li><p>The <cite>develop</cite> branch absorbs completed feature branches through pull requests.
+This branch is stable, but not yet complete and ready for general use. For example,
+documentation or infrastructure improvements may be required in order to support changes
+introduced through feature branches.</p></li>
+<li><p>The <cite>main</cite> branch is the stable and well-tested with the lowest frequency of changes.
 It should always represent the “released” version of windIO.</p></li>
 </ul>
-<p>The diagram below illustrates this flow with the main branch on the right, the develop and
-feature branches coming from main, and ultimately all merging back into main for a tagged release.
-Most often, feature branches are merged into <cite>develop</cite>, and less frequently <cite>develop</cite>
-is merged into <cite>main</cite>.
-The exception is when fixing a major bug in which case a bug-fix branch is merged directly
-into <cite>main</cite>, and then <cite>main</cite> is merged back into <cite>develop</cite>.
-The git history should be synced to GitHub frequently, and coordination across
-branches should happen there.</p>
-<a class="reference internal image-reference" href="../_images/gitflowdiagram.png"><img alt="Git-flow diagram" class="align-center" src="../_images/gitflowdiagram.png" style="height: 600px;" />
-</a>
+<section id="pull-requests">
+<h3>Pull requests<a class="headerlink" href="#pull-requests" title="Link to this heading">¶</a></h3>
+<p>Once a set of changes is ready for review, the author should submit a pull request.
+This signals to the windIO community that a change is coming, and it triggers the review
+process to begin.
+It is the responsibility of the pull request author to convince the reviewers that the change
+is reasonable, complete and an improvement to windIO.</p>
+<p>Some guidelines:</p>
+<ul class="simple">
+<li><p>The pull request description should explain the context, motivation, and justification
+for accepting the change.</p></li>
+<li><p>Executable code should be covered by tests.</p></li>
+<li><p>Data or reference models should include links to their published sources.</p></li>
+<li><p>The pull request’s source branch can live either on the main repository or on a fork.</p></li>
+</ul>
+</section>
+<section id="reviews">
+<h3>Reviews<a class="headerlink" href="#reviews" title="Link to this heading">¶</a></h3>
+<p>The review process is as critical to the success of windIO as the code contributions themselves.
+The objective of code reviews is to ensure that windIO stays within its intended scope
+and satisfies its requirements in a stable and sustainable manner.</p>
+<p>Reviews should consider the following:</p>
+<ul class="simple">
+<li><p>Code style and formatting</p></li>
+<li><p>Validation: did we make the right thing?</p></li>
+<li><p>Verification: did we make the thing right?</p></li>
+<li><p>How will someone not involved in this pull request understand this
+change in two months or two years?</p></li>
+<li><p>How does this change impact the complexity of windIO?</p></li>
+</ul>
+</section>
 </section>
 <section id="roles-responsibilities-and-expectations">
 <h2>Roles, Responsibilities and Expectations<a class="headerlink" href="#roles-responsibilities-and-expectations" title="Link to this heading">¶</a></h2>
@@ -155,7 +180,11 @@ change and provide feedback.</p>
 <li class="toctree-l1"><a class="reference internal" href="plant.html">Plant</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Contributing Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#code-of-conduct">Code of Conduct</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#git-flow">Git Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#contribution-management">Contribution management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pull-requests">Pull requests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reviews">Reviews</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#roles-responsibilities-and-expectations">Roles, Responsibilities and Expectations</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#contributor-responsibilities">Contributor Responsibilities</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#reviewer-responsibilities">Reviewer Responsibilities</a></li>
