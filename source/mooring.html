@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Mooring &#8212; windIO windIO documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=686e5160" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=27fed22d" />
+    <script src="../_static/documentation_options.js?v=3d9de789"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Airfoils" href="airfoils.html" />
+    <link rel="prev" title="Floating Platform" href="floating.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="mooring">
+<h1>Mooring<a class="headerlink" href="#mooring" title="Link to this heading">¶</a></h1>
+<p>The mooring system ontology follows closely the input file format for MoorDyn or MAP++.  Additional information can be found in the <a class="reference external" href="http://www.matt-hall.ca/files/MoorDyn-Users-Guide-2017-08-16.pdf">MoorDyn user guide</a> .</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>        <span class="n">nodes</span><span class="p">:</span>
+            <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">line1_anchor</span>
+              <span class="n">node_type</span><span class="p">:</span> <span class="n">fixed</span>
+              <span class="n">joint</span><span class="p">:</span> <span class="n">anchor1</span>
+              <span class="n">anchor_type</span><span class="p">:</span> <span class="n">drag_embedment</span>
+            <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">line2_anchor</span>
+              <span class="n">node_type</span><span class="p">:</span> <span class="n">fixed</span>
+              <span class="n">joint</span><span class="p">:</span> <span class="n">anchor2</span>
+              <span class="n">anchor_type</span><span class="p">:</span> <span class="n">drag_embedment</span>
+            <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">line3_anchor</span>
+              <span class="n">node_type</span><span class="p">:</span> <span class="n">fixed</span>
+              <span class="n">joint</span><span class="p">:</span> <span class="n">anchor3</span>
+              <span class="n">anchor_type</span><span class="p">:</span> <span class="n">drag_embedment</span>
+
+            <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">line1_vessel</span>
+              <span class="n">node_type</span><span class="p">:</span> <span class="n">vessel</span>
+              <span class="n">joint</span><span class="p">:</span> <span class="n">col1_fairlead</span>
+              <span class="n">fairlead_type</span><span class="p">:</span> <span class="n">rigid</span>
+            <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">line2_vessel</span>
+              <span class="n">node_type</span><span class="p">:</span> <span class="n">vessel</span>
+              <span class="n">joint</span><span class="p">:</span> <span class="n">col2_fairlead</span>
+              <span class="n">fairlead_type</span><span class="p">:</span> <span class="n">rigid</span>
+            <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">line3_vessel</span>
+              <span class="n">joint</span><span class="p">:</span> <span class="n">col3_fairlead</span>
+              <span class="n">node_type</span><span class="p">:</span> <span class="n">vessel</span>
+              <span class="n">fairlead_type</span><span class="p">:</span> <span class="n">rigid</span>
+
+        <span class="n">lines</span><span class="p">:</span>
+            <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">line1</span>
+              <span class="n">node1</span><span class="p">:</span> <span class="n">line1_anchor</span>
+              <span class="n">node2</span><span class="p">:</span> <span class="n">line1_vessel</span>
+              <span class="n">line_type</span><span class="p">:</span> <span class="n">main</span>
+              <span class="n">unstretched_length</span><span class="p">:</span> <span class="mf">850.0</span>
+            <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">line2</span>
+              <span class="n">node1</span><span class="p">:</span> <span class="n">line2_anchor</span>
+              <span class="n">node2</span><span class="p">:</span> <span class="n">line2_vessel</span>
+              <span class="n">line_type</span><span class="p">:</span> <span class="n">main</span>
+              <span class="n">unstretched_length</span><span class="p">:</span> <span class="mf">850.0</span>
+            <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">line3</span>
+              <span class="n">node1</span><span class="p">:</span> <span class="n">line3_anchor</span>
+              <span class="n">node2</span><span class="p">:</span> <span class="n">line3_vessel</span>
+              <span class="n">line_type</span><span class="p">:</span> <span class="n">main</span>
+              <span class="n">unstretched_length</span><span class="p">:</span> <span class="mf">850.0</span>
+
+        <span class="n">line_types</span><span class="p">:</span>
+            <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">main</span>
+              <span class="n">diameter</span><span class="p">:</span> <span class="mf">0.185</span>
+              <span class="nb">type</span><span class="p">:</span> <span class="n">chain</span>
+              <span class="n">transverse_added_mass</span><span class="p">:</span> <span class="mf">1.0</span>
+              <span class="n">tangential_added_mass</span><span class="p">:</span> <span class="mf">0.0</span>
+              <span class="n">transverse_drag</span><span class="p">:</span> <span class="mf">1.6</span>
+              <span class="n">tangential_drag</span><span class="p">:</span> <span class="mf">0.1</span>
+
+        <span class="n">anchor_types</span><span class="p">:</span>
+            <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">drag_embedment</span>
+              <span class="nb">type</span><span class="p">:</span> <span class="n">drag_embedment</span>
+</pre></div>
+</div>
+<section id="nodes">
+<h2>nodes<a class="headerlink" href="#nodes" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt><code class="code docutils literal notranslate"><span class="pre">name</span></code><span class="classifier">String</span></dt><dd><p>Name or ID of this node for use in line segment</p>
+</dd>
+</dl>
+<p><code class="code docutils literal notranslate"><span class="pre">node_type</span></code> : String from, [‘fixed’, ‘connection’, ‘vessel’]</p>
+<dl class="simple">
+<dt><code class="code docutils literal notranslate"><span class="pre">location</span></code><span class="classifier">Array of Floats, meter</span></dt><dd><p>– Coordinates x, y, and z of the connection (relative to inertial
+reference frame if Fixed or Connect, relative to platform
+reference frame if Vessel). In the case of Connect nodes, it is
+simply an initial guess for position before MoorDyn calculates the
+equilibrium initial position.</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">anchor_type</span></code><span class="classifier">String</span></dt><dd><p>Name of anchor type from anchor_type list</p>
+</dd>
+</dl>
+<p><code class="code docutils literal notranslate"><span class="pre">fairlead_type</span></code> : String from, [‘rigid’, ‘actuated’, ‘ball’]</p>
+<dl>
+<dt><code class="code docutils literal notranslate"><span class="pre">node_mass</span></code><span class="classifier">Float, kilogram</span></dt><dd><p>Clump weight mass</p>
+<p><em>Minimum</em> = 0.0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">node_volume</span></code><span class="classifier">Float, meter^3</span></dt><dd><p>Floater volume</p>
+<p><em>Minimum</em> = 0.0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">drag_area</span></code><span class="classifier">Float, meter^2</span></dt><dd><p>Product of drag coefficient and projected area (assumed constant
+in all directions) to calculate a drag force for the node</p>
+<p><em>Minimum</em> = 0.0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">added_mass</span></code><span class="classifier">Float</span></dt><dd><p>Added mass coefficient used along with node volume to calculate
+added mass on node</p>
+</dd>
+</dl>
+</section>
+<section id="lines">
+<h2>lines<a class="headerlink" href="#lines" title="Link to this heading">¶</a></h2>
+<dl>
+<dt><code class="code docutils literal notranslate"><span class="pre">name</span></code><span class="classifier">String</span></dt><dd><p>ID of this line</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">line_type</span></code><span class="classifier">String</span></dt><dd><p>Reference to line type database</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">unstretched_length</span></code><span class="classifier">Float, meter</span></dt><dd><p>length of line segment prior to tensioning</p>
+<p><em>Minimum</em> = 0.0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">node1</span></code><span class="classifier">String</span></dt><dd><p>node id of first line connection</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">node2</span></code><span class="classifier">String</span></dt><dd><p>node id of second line connection</p>
+</dd>
+</dl>
+</section>
+<section id="line-types">
+<h2>line_types<a class="headerlink" href="#line-types" title="Link to this heading">¶</a></h2>
+<dl>
+<dt><code class="code docutils literal notranslate"><span class="pre">name</span></code><span class="classifier">String</span></dt><dd><p>Name of material or line type to be referenced by line segments</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">diameter</span></code><span class="classifier">Float, meter</span></dt><dd><p>the volume-equivalent diameter of the line – the diameter of a
+cylinder having the same displacement per unit length</p>
+<p><em>Minimum</em> = 0.0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">mass_density</span></code><span class="classifier">Float, kilogram/meter</span></dt><dd><p>mass per unit length (in air)</p>
+<p><em>Minimum</em> = 0.0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">stiffness</span></code><span class="classifier">Float, Newton</span></dt><dd><p>axial line stiffness, product of elasticity modulus and cross-
+sectional area</p>
+<p><em>Minimum</em> = 0.0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">cost</span></code><span class="classifier">Float, USD/meter</span></dt><dd><p>cost per unit length</p>
+<p><em>Minimum</em> = 0.0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">breaking_load</span></code><span class="classifier">Float, Newton</span></dt><dd><p>line break tension</p>
+<p><em>Minimum</em> = 0.0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">damping</span></code><span class="classifier">Float, Newton * second</span></dt><dd><p>internal damping (BA)</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">transverse_added_mass</span></code><span class="classifier">Float</span></dt><dd><p>transverse added mass coefficient (with respect to line
+displacement)</p>
+<p><em>Minimum</em> = 0.0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">tangential_added_mass</span></code><span class="classifier">Float</span></dt><dd><p>tangential added mass coefficient (with respect to line
+displacement)</p>
+<p><em>Minimum</em> = 0.0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">transverse_drag</span></code><span class="classifier">Float</span></dt><dd><p>transverse drag coefficient (with respect to frontal area, d*l)</p>
+<p><em>Minimum</em> = 0.0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">tangential_drag</span></code><span class="classifier">Float</span></dt><dd><p>tangential drag coefficient (with respect to surface area, π*d*l)</p>
+<p><em>Minimum</em> = 0.0</p>
+</dd>
+</dl>
+</section>
+<section id="anchor-types">
+<h2>anchor_types<a class="headerlink" href="#anchor-types" title="Link to this heading">¶</a></h2>
+<dl>
+<dt><code class="code docutils literal notranslate"><span class="pre">name</span></code><span class="classifier">String</span></dt><dd><p>Name of anchor to be referenced by anchor_id in Nodes section</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">mass</span></code><span class="classifier">Float, kilogram</span></dt><dd><p>mass of the anchor</p>
+<p><em>Minimum</em> = 0.0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">cost</span></code><span class="classifier">Float, USD</span></dt><dd><p>cost of the anchor</p>
+<p><em>Minimum</em> = 0.0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">max_lateral_load</span></code><span class="classifier">Float, Newton</span></dt><dd><p>Maximum lateral load (parallel to the sea floor) that the anchor
+can support</p>
+<p><em>Minimum</em> = 0.0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">max_vertical_load</span></code><span class="classifier">Float, Newton</span></dt><dd><p>Maximum vertical load (perpendicular to the sea floor) that the
+anchor can support</p>
+<p><em>Minimum</em> = 0.0</p>
+</dd>
+</dl>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">windIO</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="turbine.html">Turbine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="assembly.html">Assembly</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="components.html">Components</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="blade.html">Blade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hub.html">Hub</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nacelle.html">Nacelle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tower.html">Tower</a></li>
+<li class="toctree-l3"><a class="reference internal" href="monopile.html">Monopile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="floating.html">Floating Platform</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Mooring</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="airfoils.html">Airfoils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="materials.html">Materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="control.html">Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="environment.html">Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="costs.html">Costs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="plant.html">Plant</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide.html">Contributing Guide</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="turbine.html">Turbine</a><ul>
+  <li><a href="components.html">Components</a><ul>
+      <li>Previous: <a href="floating.html" title="previous chapter">Floating Platform</a></li>
+      <li>Next: <a href="airfoils.html" title="next chapter">Airfoils</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2020, IEA Wind Task 37.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.1.3</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="../_sources/source/mooring.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

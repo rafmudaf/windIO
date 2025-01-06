@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Contributing Guide &#8212; windIO windIO documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=686e5160" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=27fed22d" />
+    <script src="../_static/documentation_options.js?v=3d9de789"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Wind Farm" href="wind_farm.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="contributing-guide">
+<h1>Contributing Guide<a class="headerlink" href="#contributing-guide" title="Link to this heading">¶</a></h1>
+<p>windIO was started under IEA Wind Task 37 and has been additionally supported by IEA Wind Task 55
+as well as other community-based groups, research organization, and private companies.
+Being a collaborative effort, it is important to establish a common understanding of the
+rules, responsibilities, and expectations from all stakeholders.
+This document outlines the processes and guidelines for contributing to windIO.</p>
+<p>The windIO repository includes JSON schemas, YAML files that describe wind energy systems
+conforming to the schemas, Python code for working with the schemas and input files,
+source files for web-based documentation, and various other files that serve as infrastructure.
+Changes to anything that is tracked with git in the windIO repository is considered a contribution,
+and these guidelines apply.</p>
+<section id="code-of-conduct">
+<h2>Code of Conduct<a class="headerlink" href="#code-of-conduct" title="Link to this heading">¶</a></h2>
+<p>As members of the wind energy community, we all agree that the advancement of wind
+energy technologies is critical for the sustainability of our planet.
+This shared goal should be reflected in our interactions with each other.
+Remember that we’re all on the same team despite differences in our day to day stressors and needs.</p>
+<p>Two principles should guide our conduct:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Cromwell%27s_rule">Think that you might be wrong.</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Wikipedia:Assume_good_faith">Assume good faith.</a></p></li>
+</ul>
+</section>
+<section id="git-flow">
+<h2>Git Flow<a class="headerlink" href="#git-flow" title="Link to this heading">¶</a></h2>
+<p>Contributions are tracked with <a class="reference external" href="https://docs.github.com/en/get-started/start-your-journey/about-github-and-git#about-git">git</a>
+and coordinated with <a class="reference external" href="https://github.com">GitHub</a>.</p>
+<p>In general, the <a class="reference external" href="https://nvie.com/posts/a-successful-git-branching-model/">git-flow</a> model is used
+to navigate parallel development efforts.
+Here’s a brief summary:</p>
+<ul class="simple">
+<li><p>Day to day work happens on feature branches on the principle repository or forks. The feature
+branches may be unstable, and there’s no expectation that they are complete.
+These branches should have a simple name that is indicative of the scope of the work.</p></li>
+<li><p>The <cite>develop</cite> branch absorbs feature branches when they are complete through pull requests.
+This branch is somewhat stable, but not yet ready to let loose for the general users.</p></li>
+<li><p>The <cite>main</cite> branch is the most stable and tested with the lowest frequency of changes.
+It should always represent the “released” version of windIO.</p></li>
+</ul>
+<p>The diagram below illustrates this flow with the main branch on the right, the develop and
+feature branches coming from main, and ultimately all merging back into main for a tagged release.
+Most often, feature branches are merged into <cite>develop</cite>, and less frequently <cite>develop</cite>
+is merged into <cite>main</cite>.
+The exception is when fixing a major bug in which case a bug-fix branch is merged directly
+into <cite>main</cite>, and then <cite>main</cite> is merged back into <cite>develop</cite>.
+The git history should be synced to GitHub frequently, and coordination across
+branches should happen there.</p>
+<a class="reference internal image-reference" href="../_images/gitflowdiagram.png"><img alt="Git-flow diagram" class="align-center" src="../_images/gitflowdiagram.png" style="height: 600px;" />
+</a>
+</section>
+<section id="roles-responsibilities-and-expectations">
+<h2>Roles, Responsibilities and Expectations<a class="headerlink" href="#roles-responsibilities-and-expectations" title="Link to this heading">¶</a></h2>
+<p>The collaborative development process involves various people with distinct roles, and
+a single person may participate as multiple roles.
+In the context of windIO, the following are identified:</p>
+<ul class="simple">
+<li><p><strong>Contributor</strong>: Adds to or modifies content in the windIO repository.</p></li>
+<li><p><strong>Reviewer</strong>: Reviews and critiques contributions by <strong>developers</strong>.</p></li>
+<li><p><strong>Maintainer</strong>: Manages the repository by supporting the review process, managing issues,
+and generally ensuring the quality of the repository.</p></li>
+</ul>
+<p>All roles are required to work together in the development of windIO, and
+authorship of a change is given to contributors, reviewers, and maintainers.</p>
+<section id="contributor-responsibilities">
+<h3>Contributor Responsibilities<a class="headerlink" href="#contributor-responsibilities" title="Link to this heading">¶</a></h3>
+<p>Contributors are responsible for communicating their intention to make a change to the rest
+of the community of stakeholders.
+A change should be proposed through a GitHub Issue or Discussion, and relevant people
+should be tagged directly for feedback.
+After accepting feedback and updating the proposal, the contributor is responsible for
+implementing the change and submitting a pull request.</p>
+<p>A pull request is owned by the <em>contributor</em>.
+It is their responsibility to fully describe the change, the motivation behind it, and the
+impact on windIO and the adjacent ecosystem.</p>
+</section>
+<section id="reviewer-responsibilities">
+<h3>Reviewer Responsibilities<a class="headerlink" href="#reviewer-responsibilities" title="Link to this heading">¶</a></h3>
+<p>Reviewers are responsible for providing feedback on the pull request.
+Approving a change indicates agreement with the change, and it implies that they will accept
+responsibility for the consequences of the change.</p>
+<p>At this point, it is the responsibility of <em>reviewers</em> and <em>maintainers</em> to evaluate the proposed
+change and provide feedback.</p>
+<p>After a pull request is submitted, <em>maintainers</em> should ensure the following:
+- An appropriate <em>reviewer</em> is listed
+- Conflicting works in progress are flagged
+- A tentative timeline for review, design iteration, and merge is established</p>
+</section>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">windIO</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="turbine.html">Turbine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plant.html">Plant</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Contributing Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#code-of-conduct">Code of Conduct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#git-flow">Git Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#roles-responsibilities-and-expectations">Roles, Responsibilities and Expectations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#contributor-responsibilities">Contributor Responsibilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reviewer-responsibilities">Reviewer Responsibilities</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="wind_farm.html" title="previous chapter">Wind Farm</a></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2020, IEA Wind Task 37.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.1.3</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="../_sources/source/developer_guide.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

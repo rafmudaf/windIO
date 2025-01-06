@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Wind Farm &#8212; windIO windIO documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=686e5160" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=27fed22d" />
+    <script src="../_static/documentation_options.js?v=3d9de789"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Contributing Guide" href="developer_guide.html" />
+    <link rel="prev" title="Energy Resource" href="plant_energy_resource.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="wind-farm">
+<h1>Wind Farm<a class="headerlink" href="#wind-farm" title="Link to this heading">¶</a></h1>
+<p>The wind farm schema deals with parameters of the wind farm. Required are a <code class="code docutils literal notranslate"><span class="pre">layouts</span></code> definition
+and a <code class="code docutils literal notranslate"><span class="pre">turbines</span></code> definition. Additional properties can be included as needed, but don’t currently
+have associated schemas.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>name: IEA Wind Task 37 Case study 3, 25WT Wind Farm
+layouts: 
+    initial_layout: 
+        coordinates:
+            x: [
+                10363.7833, 9894.9437, 8450.2895, 9008.9311, 9567.5726, 10126.2142, 7862.2807, 8537.7355, 9213.1903, 9888.6451, 7274.2718, 8066.5399, 8858.8079, 9651.0760, 6686.2630, 7371.5049, 8056.7467, 8741.9886, 9427.2305, 6098.2541, 6750.8566, 7403.4592, 8056.0622, 8708.6700, 9361.2778
+            ]
+            y: [
+                6490.2719, 6316.9180, 6455.3421, 6043.4997, 5631.6572, 5219.8148, 5665.8933, 5093.7148, 4521.5362, 3949.3577, 4876.4446, 4143.9299, 3411.4153, 2678.9006, 4086.9958, 3416.8405, 2746.6851, 2076.5297, 1406.3743, 3297.5471, 2665.4498, 2033.3525, 1401.2557, 769.1637, 137.0718
+            ]
+turbines: !include ../plant_energy_turbine/IEA37_10MW_turbine.yaml
+</pre></div>
+</div>
+<section id="properties">
+<span id="wind-farm-properties"></span><h2>Properties<a class="headerlink" href="#properties" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt><code class="code docutils literal notranslate"><span class="pre">layouts</span></code><span class="classifier">Object</span></dt><dd><p>An object that has a required property <code class="code docutils literal notranslate"><span class="pre">coordinates</span></code>, which is an object that consists of two
+arrays, <code class="code docutils literal notranslate"><span class="pre">x</span></code> and <code class="code docutils literal notranslate"><span class="pre">y</span></code>, which contain the x- and y-coordinates for the turbines.</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">turbines</span></code><span class="classifier">Object</span></dt><dd><p>An object containing a nested dictionary with various turbine-defining parameters. For specfic properties,
+see <a class="reference internal" href="#turbine-properties"><span class="std std-ref">below</span></a>.</p>
+</dd>
+</dl>
+<section id="turbine-properties">
+<span id="id1"></span><h3>turbine Properties<a class="headerlink" href="#turbine-properties" title="Link to this heading">¶</a></h3>
+<dl>
+<dt><code class="code docutils literal notranslate"><span class="pre">name</span></code><span class="classifier">String</span></dt><dd><p>Unique identifier of the turbine.</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">hub_height</span></code><span class="classifier">Number</span></dt><dd><p>A number specifying the hub height of the turbine in meters.</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">rotor_diameter</span></code><span class="classifier">Number</span></dt><dd><p>A number specifying the rotor diameter of the turbine in meters.</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">TSR</span></code><span class="classifier">Number</span></dt><dd><p>A number specifying the tip-speed ratio of the turbine.</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">performance</span></code><span class="classifier">Object</span></dt><dd><p>An object containing a nested dictionary of turbine performance characteristics. Required combinations of
+properties include:</p>
+<ol class="arabic simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">Cp_curve</span></code> and <code class="code docutils literal notranslate"><span class="pre">Ct_curve</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">power_curve</span></code> and <code class="code docutils literal notranslate"><span class="pre">Ct_curve</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">rated_power</span></code>, <code class="code docutils literal notranslate"><span class="pre">rated_wind_speed</span></code>, <code class="code docutils literal notranslate"><span class="pre">cutin_wind_speed</span></code>, <code class="code docutils literal notranslate"><span class="pre">cutout_wind_speed</span></code>, and <code class="code docutils literal notranslate"><span class="pre">Ct_curve</span></code>.</p></li>
+</ol>
+<p>For specific properties, see <a class="reference internal" href="#performance-properties"><span class="std std-ref">below</span></a>.</p>
+</dd>
+</dl>
+</section>
+<section id="performance-properties">
+<span id="id2"></span><h3>performance Properties<a class="headerlink" href="#performance-properties" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt><code class="code docutils literal notranslate"><span class="pre">Cp_curve</span></code><span class="classifier">Object</span></dt><dd><p>An object containing a nested dictionary of Cp performance characteristics. Requires two arrays of
+<code class="code docutils literal notranslate"><span class="pre">Cp_values</span></code> and <code class="code docutils literal notranslate"><span class="pre">Cp_wind_speeds</span></code>.</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">power_curve</span></code><span class="classifier">Object</span></dt><dd><p>An object containing a nested dictionary of power performance characteristics. Requires two arrays of
+<code class="code docutils literal notranslate"><span class="pre">power_values</span></code> and <code class="code docutils literal notranslate"><span class="pre">power_wind_speeds</span></code>.</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">Ct_curve</span></code><span class="classifier">Object</span></dt><dd><p>An object containing a nested dictionary of Cp performance characteristics. Requires two arrays of
+<code class="code docutils literal notranslate"><span class="pre">Ct_values</span></code> and <code class="code docutils literal notranslate"><span class="pre">Ct_wind_speeds</span></code>.</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">rated_wind_speed</span></code><span class="classifier">Number</span></dt><dd><p>A number specifying the rated wind speed of the turbine in m/s.</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">cutin_wind_speed</span></code><span class="classifier">Number</span></dt><dd><p>A number specifying the cut-in wind speed of the turbine in m/s.</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">cutout_wind_speed</span></code><span class="classifier">Number</span></dt><dd><p>A number specifying the cut-out wind speed of the turbine in m/s.</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">rated_power</span></code><span class="classifier">Number</span></dt><dd><p>A number specifying the rated power of the turbine in W.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="examples">
+<span id="wind-farm-examples"></span><h2>Examples<a class="headerlink" href="#examples" title="Link to this heading">¶</a></h2>
+<p>Both <a class="reference internal" href="#farm-examples"><span class="std std-ref">Farm Examples</span></a> and <a class="reference internal" href="#turbine-examples"><span class="std std-ref">Turbine Examples</span></a> are included below.</p>
+<section id="farm-examples">
+<h3>Farm Examples<a class="headerlink" href="#farm-examples" title="Link to this heading">¶</a></h3>
+<p>Three farm examples are shown below, all taken from the IEA Wind Task 37 Layout Optimization Case Studies.
+Details of the case studies are given <a class="reference external" href="https://github.com/IEAWindTask37/iea37-wflo-casestudies">here</a>.</p>
+<section id="iea-wind-task-37-case-study-1-2-16wt-wind-farm">
+<h4>IEA Wind Task 37 Case study 1+2, 16WT Wind Farm<a class="headerlink" href="#iea-wind-task-37-case-study-1-2-16wt-wind-farm" title="Link to this heading">¶</a></h4>
+<p>In this example, the IEA Wind Task 37 Case study 1+2, 16WT Wind Farm is defined.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span><span class="p">:</span> <span class="n">IEA</span> <span class="n">Wind</span> <span class="n">Task</span> <span class="mi">37</span> <span class="n">Case</span> <span class="n">study</span> <span class="mi">1</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span> <span class="mi">16</span><span class="n">WT</span> <span class="n">Wind</span> <span class="n">Farm</span>
+<span class="n">layouts</span><span class="p">:</span> 
+    <span class="n">initial_layout</span><span class="p">:</span> 
+        <span class="n">coordinates</span><span class="p">:</span>
+            <span class="n">x</span><span class="p">:</span> <span class="p">[</span>
+                <span class="mf">0.</span><span class="p">,</span> <span class="mf">650.</span><span class="p">,</span> <span class="mf">200.861</span><span class="p">,</span> <span class="o">-</span><span class="mf">525.861</span><span class="p">,</span> <span class="o">-</span><span class="mf">525.861</span><span class="p">,</span> <span class="mf">200.861</span><span class="p">,</span> <span class="mf">1300.</span><span class="p">,</span> <span class="mf">1051.7221</span><span class="p">,</span>
+                <span class="mf">401.7221</span><span class="p">,</span> <span class="o">-</span><span class="mf">401.7221</span><span class="p">,</span> <span class="o">-</span><span class="mf">1051.7221</span><span class="p">,</span> <span class="o">-</span><span class="mf">1300.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1051.7221</span><span class="p">,</span> <span class="o">-</span><span class="mf">401.7221</span><span class="p">,</span>
+                <span class="mf">401.7221</span><span class="p">,</span> <span class="mf">1051.7221</span>
+            <span class="p">]</span>
+            <span class="n">y</span><span class="p">:</span> <span class="p">[</span>
+                <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">618.1867</span><span class="p">,</span> <span class="mf">382.0604</span><span class="p">,</span> <span class="o">-</span><span class="mf">382.0604</span><span class="p">,</span> <span class="o">-</span><span class="mf">618.1867</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">764.1208</span><span class="p">,</span>
+                <span class="mf">1236.3735</span><span class="p">,</span> <span class="mf">1236.3735</span><span class="p">,</span> <span class="mf">764.1208</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="o">-</span><span class="mf">764.1208</span><span class="p">,</span> <span class="o">-</span><span class="mf">1236.3735</span><span class="p">,</span> <span class="o">-</span><span class="mf">1236.3735</span><span class="p">,</span>
+                <span class="o">-</span><span class="mf">764.1208</span>
+            <span class="p">]</span>
+<span class="n">turbines</span><span class="p">:</span>
+    <span class="n">name</span><span class="p">:</span> <span class="n">IEA</span> <span class="n">Wind</span> <span class="n">Task</span> <span class="mi">37</span> <span class="n">case</span> <span class="n">study</span> <span class="mf">3.35</span><span class="n">MW</span> <span class="n">Onshore</span> <span class="n">Reference</span> <span class="n">Turbine</span>
+    <span class="n">performance</span><span class="p">:</span>
+        <span class="n">rated_power</span><span class="p">:</span> <span class="mi">3350000</span>
+        <span class="n">rated_wind_speed</span><span class="p">:</span> <span class="mf">9.8</span>
+        <span class="n">cutin_wind_speed</span><span class="p">:</span> <span class="mf">4.0</span>
+        <span class="n">cutout_wind_speed</span><span class="p">:</span> <span class="mf">25.0</span>
+        <span class="n">Ct_curve</span><span class="p">:</span>
+            <span class="n">Ct_values</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.888888889</span><span class="p">,</span> <span class="mf">0.888888889</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+            <span class="n">Ct_wind_speeds</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">3.99</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mf">25.01</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">]</span>
+    <span class="n">hub_height</span><span class="p">:</span> <span class="mf">110.0</span>
+    <span class="n">rotor_diameter</span><span class="p">:</span> <span class="mf">130.0</span>
+</pre></div>
+</div>
+</section>
+<section id="iea-wind-task-37-case-study-3-25wt-wind-farm">
+<h4>IEA Wind Task 37 Case study 3, 25WT Wind Farm<a class="headerlink" href="#iea-wind-task-37-case-study-3-25wt-wind-farm" title="Link to this heading">¶</a></h4>
+<p>In this example, the IEA Wind Task 37 Case study 3, 25WT Wind Farm is defined.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>name: IEA Wind Task 37 Case study 3, 25WT Wind Farm
+layouts: 
+    initial_layout: 
+        coordinates:
+            x: [
+                10363.7833, 9894.9437, 8450.2895, 9008.9311, 9567.5726, 10126.2142, 7862.2807, 8537.7355, 9213.1903, 9888.6451, 7274.2718, 8066.5399, 8858.8079, 9651.0760, 6686.2630, 7371.5049, 8056.7467, 8741.9886, 9427.2305, 6098.2541, 6750.8566, 7403.4592, 8056.0622, 8708.6700, 9361.2778
+            ]
+            y: [
+                6490.2719, 6316.9180, 6455.3421, 6043.4997, 5631.6572, 5219.8148, 5665.8933, 5093.7148, 4521.5362, 3949.3577, 4876.4446, 4143.9299, 3411.4153, 2678.9006, 4086.9958, 3416.8405, 2746.6851, 2076.5297, 1406.3743, 3297.5471, 2665.4498, 2033.3525, 1401.2557, 769.1637, 137.0718
+            ]
+turbines: !include ../plant_energy_turbine/IEA37_10MW_turbine.yaml
+</pre></div>
+</div>
+</section>
+<section id="iea-wind-task-37-case-study-4-81wt-wind-farm">
+<h4>IEA Wind Task 37 Case study 4, 81WT Wind Farm<a class="headerlink" href="#iea-wind-task-37-case-study-4-81wt-wind-farm" title="Link to this heading">¶</a></h4>
+<p>In this example, the IEA Wind Task 37 Case study 4, 81WT Wind Farm is defined.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>name: IEA Wind Task 37 Case study 4, 81WT Wind Farm
+layouts: 
+    initial_layout: 
+        coordinates:
+            x: [
+                10363.7833, 9894.9437, 8450.2895, 9022.1294, 9593.9692, 10165.8090, 7979.8825, 8642.5333, 9305.1840, 9967.8348, 7509.4754, 8074.5717, 8639.6679, 9204.7642, 9769.8606, 7039.0683, 7672.2728, 8305.4773, 8938.6818, 9571.8863, 6568.6612, 7277.1539, 7985.6467, 8694.1395, 9402.6323, 6098.2541, 6750.8566, 7403.4592, 8056.0622, 8708.6700, 9361.2778, 8297.1401, 7057.9009, 7755.3966, 6537.0543, 7213.6530, 6016.2077, 6671.9094, 5495.3611, 6130.1658, 4974.5145, 5588.4223, 3267.0701, 4145.9677, 5107.1349, 6054.6902, 2213.8627, 2951.0233, 3743.0302, 4525.9626, 1160.6553, 1756.0788, 2378.9255, 2997.2350, 107.4479, 561.1344, 1014.8209, 1468.5074, 6764.9216, 6034.3987, 4878.0741, 5729.6775, 3934.6503, 4573.3529, 5212.0555, 2991.2265, 3842.8300, 4694.4335, 2047.8027, 2757.4723, 3467.1419, 4176.8115, 8953.7052, 7846.3157, 6738.9262, 5631.5367, 4524.1472, 8001.0152, 6893.6257, 5806.1713, 7048.3252
+            ]
+            y: [
+                6490.2719, 6316.9180, 6455.3421, 6114.0806, 5772.8191, 5431.5577, 5823.7831, 5340.1365, 4856.4899, 4372.8434, 5192.2241, 4722.7003, 4253.1766, 3783.6529, 3314.1291, 4560.6651, 3984.3525, 3408.0400, 2831.7274, 2255.4149, 3929.1061, 3244.9222, 2560.7382, 1876.5542, 1192.3703, 3297.5471, 2665.4498, 2033.3525, 1401.2557, 769.1637, 137.0718, 7398.8969, 7669.1317, 6677.3823, 7017.0094, 5955.8679, 6364.8870, 5234.3534, 5712.7647, 4512.8390, 5060.6424, 3791.3245, 10100.6305, 9596.9976, 9278.5659, 8925.3415, 9767.0876, 9359.4397, 8951.7917, 8544.1437, 9433.5446, 8951.7917, 8586.4789, 8162.9460, 9100.0017, 8660.5839, 8221.1661, 7781.7483, 8399.6839, 7957.6709, 7928.0749, 7103.2410, 7692.2704, 7073.6450, 6455.0196, 7456.4659, 6631.6320, 5806.7981, 7220.6614, 6533.2998, 5845.9382, 5158.5767, 11901.4945, 11550.7937, 11200.0929, 10849.3921, 10498.6913, 10716.4728, 10365.7720, 10066.8889, 9531.4511
+            ]
+turbines: !include ../plant_energy_turbine/IEA37_10MW_turbine.yaml
+</pre></div>
+</div>
+</section>
+</section>
+<section id="turbine-examples">
+<h3>Turbine Examples<a class="headerlink" href="#turbine-examples" title="Link to this heading">¶</a></h3>
+<p>Three IEA Wind Task 37 reference turbine definitions are given below as examples of how to define turbines
+within the wind plant schema.</p>
+<section id="iea-wind-task-37-3-35mw-reference-turbine">
+<h4>IEA Wind Task 37 3.35MW Reference Turbine<a class="headerlink" href="#iea-wind-task-37-3-35mw-reference-turbine" title="Link to this heading">¶</a></h4>
+<p>In this example, the IEA 37 3.35MW reference turbine is specified using the rated power, rated/cut-in/cut-out
+wind speeds, the Ct curve, hub height, and rotor diameter.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span><span class="p">:</span> <span class="n">IEA</span> <span class="n">Wind</span> <span class="n">Task</span> <span class="mi">37</span> <span class="n">case</span> <span class="n">study</span> <span class="mf">3.35</span><span class="n">MW</span> <span class="n">Onshore</span> <span class="n">Reference</span> <span class="n">Turbine</span>
+<span class="n">performance</span><span class="p">:</span>
+  <span class="n">rated_power</span><span class="p">:</span> <span class="mi">3350000</span>
+  <span class="n">rated_wind_speed</span><span class="p">:</span> <span class="mf">9.8</span>
+  <span class="n">cutin_wind_speed</span><span class="p">:</span> <span class="mf">4.0</span>
+  <span class="n">cutout_wind_speed</span><span class="p">:</span> <span class="mf">25.0</span>
+  <span class="n">Ct_curve</span><span class="p">:</span>
+    <span class="n">Ct_values</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">.888888889</span><span class="p">,</span><span class="mf">.888888889</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">Ct_wind_speeds</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">3.99</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span><span class="mf">25.01</span><span class="p">,</span><span class="mf">100.0</span><span class="p">]</span>
+<span class="n">hub_height</span><span class="p">:</span> <span class="mf">110.0</span>
+<span class="n">rotor_diameter</span><span class="p">:</span> <span class="mf">130.0</span>
+</pre></div>
+</div>
+</section>
+<section id="iea-wind-task-37-10mw-reference-turbine">
+<h4>IEA Wind Task 37 10MW Reference Turbine<a class="headerlink" href="#iea-wind-task-37-10mw-reference-turbine" title="Link to this heading">¶</a></h4>
+<p>In this example, the IEA 37 10MW reference turbine is specified using the rated power, rated/cut-in/cut-out
+wind speeds, the Ct curve, hub height, and rotor diameter.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span><span class="p">:</span> <span class="n">IEA</span> <span class="n">Wind</span> <span class="n">Task</span> <span class="mi">37</span> <span class="mi">10</span><span class="n">MW</span> <span class="n">Offshore</span> <span class="n">Reference</span> <span class="n">Turbine</span>
+<span class="n">performance</span><span class="p">:</span>
+  <span class="n">rated_power</span><span class="p">:</span> <span class="mi">10000000</span>
+  <span class="n">rated_wind_speed</span><span class="p">:</span> <span class="mf">11.0</span>
+  <span class="n">cutin_wind_speed</span><span class="p">:</span> <span class="mf">4.0</span>
+  <span class="n">cutout_wind_speed</span><span class="p">:</span> <span class="mf">25.0</span>
+  <span class="n">Ct_curve</span><span class="p">:</span>
+    <span class="n">Ct_values</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.770113776</span><span class="p">,</span> <span class="mf">0.776301765</span><span class="p">,</span> <span class="mf">0.782430404</span><span class="p">,</span> <span class="mf">0.781982993</span><span class="p">,</span> <span class="mf">0.780246928</span><span class="p">,</span> <span class="mf">0.777153006</span><span class="p">,</span> <span class="mf">0.771853687</span><span class="p">,</span> <span class="mf">0.776845963</span><span class="p">,</span> <span class="mf">0.776845963</span><span class="p">,</span> <span class="mf">0.776845963</span><span class="p">,</span> <span class="mf">0.776845963</span><span class="p">,</span> <span class="mf">0.776845963</span><span class="p">,</span> <span class="mf">0.776845963</span><span class="p">,</span> <span class="mf">0.776845963</span><span class="p">,</span> <span class="mf">0.776845963</span><span class="p">,</span> <span class="mf">0.776845963</span><span class="p">,</span> <span class="mf">0.776845963</span><span class="p">,</span> <span class="mf">0.776845963</span><span class="p">,</span> <span class="mf">0.776845963</span><span class="p">,</span> <span class="mf">0.776845963</span><span class="p">,</span> <span class="mf">0.776845963</span><span class="p">,</span> <span class="mf">0.776845963</span><span class="p">,</span> <span class="mf">0.776845963</span><span class="p">,</span> <span class="mf">0.776845963</span><span class="p">,</span> <span class="mf">0.776845963</span><span class="p">,</span> <span class="mf">0.776845963</span><span class="p">,</span> <span class="mf">0.767521911</span><span class="p">,</span> <span class="mf">0.765104347</span><span class="p">,</span> <span class="mf">0.758675026</span><span class="p">,</span> <span class="mf">0.505649564</span><span class="p">,</span> <span class="mf">0.431035612</span><span class="p">,</span> <span class="mf">0.370827539</span><span class="p">,</span> <span class="mf">0.320855929</span><span class="p">,</span> <span class="mf">0.278805531</span><span class="p">,</span> <span class="mf">0.243151019</span><span class="p">,</span> <span class="mf">0.212773558</span><span class="p">,</span> <span class="mf">0.186803785</span><span class="p">,</span> <span class="mf">0.164542221</span><span class="p">,</span> <span class="mf">0.145414565</span><span class="p">,</span> <span class="mf">0.128943645</span><span class="p">,</span> <span class="mf">0.114730283</span><span class="p">,</span> <span class="mf">0.102438991</span><span class="p">,</span> <span class="mf">0.091786964</span><span class="p">,</span> <span class="mf">0.082535328</span><span class="p">,</span> <span class="mf">0.074482009</span><span class="p">,</span> <span class="mf">0.067455867</span><span class="p">,</span> <span class="mf">0.061311766</span><span class="p">,</span> <span class="mf">0.05592648</span><span class="p">,</span>  <span class="mf">0.051195261</span><span class="p">,</span> <span class="mf">0.047029125</span><span class="p">]</span>
+    <span class="n">Ct_wind_speeds</span><span class="p">:</span> <span class="p">[</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">4.514652562</span><span class="p">,</span> <span class="mf">5.000795688</span><span class="p">,</span> <span class="mf">5.457350016</span><span class="p">,</span> <span class="mf">5.883301884</span><span class="p">,</span> <span class="mf">6.277705571</span><span class="p">,</span> <span class="mf">6.639685402</span><span class="p">,</span> <span class="mf">6.968437691</span><span class="p">,</span> <span class="mf">7.263232527</span><span class="p">,</span> <span class="mf">7.523415391</span><span class="p">,</span> <span class="mf">7.748408611</span><span class="p">,</span> <span class="mf">7.937712648</span><span class="p">,</span> <span class="mf">8.090907197</span><span class="p">,</span> <span class="mf">8.20765213</span><span class="p">,</span> <span class="mf">8.287688244</span><span class="p">,</span> <span class="mf">8.330837837</span><span class="p">,</span> <span class="mf">8.337005108</span><span class="p">,</span> <span class="mf">8.367833853</span><span class="p">,</span> <span class="mf">8.435590166</span><span class="p">,</span> <span class="mf">8.540123611</span><span class="p">,</span> <span class="mf">8.681202099</span><span class="p">,</span> <span class="mf">8.858512398</span><span class="p">,</span> <span class="mf">9.071660837</span><span class="p">,</span> <span class="mf">9.320174171</span><span class="p">,</span> <span class="mf">9.603500641</span><span class="p">,</span> <span class="mf">9.921011189</span><span class="p">,</span> <span class="mf">10.27200086</span><span class="p">,</span> <span class="mf">10.65569038</span><span class="p">,</span> <span class="mf">10.75773635</span><span class="p">,</span> <span class="mf">11.51769068</span><span class="p">,</span> <span class="mf">11.9940876</span><span class="p">,</span> <span class="mf">12.49936091</span><span class="p">,</span> <span class="mf">13.03238875</span><span class="p">,</span> <span class="mf">13.59198769</span><span class="p">,</span> <span class="mf">14.17691527</span><span class="p">,</span> <span class="mf">14.7858728</span><span class="p">,</span> <span class="mf">15.41750825</span><span class="p">,</span> <span class="mf">16.07041923</span><span class="p">,</span> <span class="mf">16.74315611</span><span class="p">,</span> <span class="mf">17.43422525</span><span class="p">,</span> <span class="mf">18.1420923</span><span class="p">,</span> <span class="mf">18.86518562</span><span class="p">,</span> <span class="mf">19.60189976</span><span class="p">,</span> <span class="mf">20.35059904</span><span class="p">,</span> <span class="mf">21.10962115</span><span class="p">,</span> <span class="mf">21.87728087</span><span class="p">,</span> <span class="mf">22.65187381</span><span class="p">,</span> <span class="mf">23.43168018</span><span class="p">,</span> <span class="mf">24.21496861</span><span class="p">,</span> <span class="mf">25.0</span><span class="p">]</span>
+<span class="n">hub_height</span><span class="p">:</span> <span class="mf">119.0</span>
+<span class="n">rotor_diameter</span><span class="p">:</span> <span class="mf">198.0</span>
+</pre></div>
+</div>
+</section>
+<section id="iea-wind-task-37-15mw-reference-turbine">
+<h4>IEA Wind Task 37 15MW Reference Turbine<a class="headerlink" href="#iea-wind-task-37-15mw-reference-turbine" title="Link to this heading">¶</a></h4>
+<p>In this example, the IEA 37 15MW reference turbine is specified using the Cp/Ct curves,
+hub height, and rotor diameter.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span><span class="p">:</span> <span class="n">IEA</span> <span class="n">Wind</span> <span class="n">Task</span> <span class="mi">37</span> <span class="mi">15</span><span class="n">MW</span> <span class="n">Offshore</span> <span class="n">Reference</span> <span class="n">Turbine</span>
+<span class="n">performance</span><span class="p">:</span>
+  <span class="n">Cp_curve</span><span class="p">:</span>
+    <span class="n">Cp_values</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.100335552</span><span class="p">,</span> <span class="mf">0.272197208</span><span class="p">,</span> <span class="mf">0.359305118</span><span class="p">,</span> <span class="mf">0.409156685</span><span class="p">,</span> <span class="mf">0.42729002</span><span class="p">,</span> <span class="mf">0.441819614</span><span class="p">,</span> <span class="mf">0.452708049</span><span class="p">,</span> <span class="mf">0.475270298</span><span class="p">,</span> <span class="mf">0.479478644</span><span class="p">,</span> <span class="mf">0.482871263</span><span class="p">,</span> <span class="mf">0.484447627</span><span class="p">,</span> <span class="mf">0.485186337</span><span class="p">,</span> <span class="mf">0.485905846</span><span class="p">,</span> <span class="mf">0.487114154</span><span class="p">,</span> <span class="mf">0.488094793</span><span class="p">,</span> <span class="mf">0.488866488</span><span class="p">,</span> <span class="mf">0.488988058</span><span class="p">,</span> <span class="mf">0.489050152</span><span class="p">,</span> <span class="mf">0.489088858</span><span class="p">,</span> <span class="mf">0.489114531</span><span class="p">,</span> <span class="mf">0.489127764</span><span class="p">,</span> <span class="mf">0.48915576</span><span class="p">,</span> <span class="mf">0.489165047</span><span class="p">,</span> <span class="mf">0.489154466</span><span class="p">,</span> <span class="mf">0.489163867</span><span class="p">,</span> <span class="mf">0.489224161</span><span class="p">,</span> <span class="mf">0.489263048</span><span class="p">,</span> <span class="mf">0.48928802</span><span class="p">,</span> <span class="mf">0.489293116</span><span class="p">,</span> <span class="mf">0.489304304</span><span class="p">,</span> <span class="mf">0.489319143</span><span class="p">,</span> <span class="mf">0.48938292</span><span class="p">,</span> <span class="mf">0.489378059</span><span class="p">,</span> <span class="mf">0.486507177</span><span class="p">,</span> <span class="mf">0.472991558</span><span class="p">,</span> <span class="mf">0.470349316</span><span class="p">,</span> <span class="mf">0.467724941</span><span class="p">,</span> <span class="mf">0.465119143</span><span class="p">,</span> <span class="mf">0.462537044</span><span class="p">,</span> <span class="mf">0.462021882</span><span class="p">,</span> <span class="mf">0.461765284</span><span class="p">,</span> <span class="mf">0.461636557</span><span class="p">,</span> <span class="mf">0.46150846</span><span class="p">,</span> <span class="mf">0.461380941</span><span class="p">,</span> <span class="mf">0.461317766</span><span class="p">,</span> <span class="mf">0.459972382</span><span class="p">,</span> <span class="mf">0.447424184</span><span class="p">,</span> <span class="mf">0.435324299</span><span class="p">,</span> <span class="mf">0.406934831</span><span class="p">,</span> <span class="mf">0.380965216</span><span class="p">,</span> <span class="mf">0.357157168</span><span class="p">,</span> <span class="mf">0.335295525</span><span class="p">,</span> <span class="mf">0.263718683</span><span class="p">,</span> <span class="mf">0.211136579</span><span class="p">,</span> <span class="mf">0.171651956</span><span class="p">,</span> <span class="mf">0.108080744</span><span class="p">,</span> <span class="mf">0.072394937</span><span class="p">,</span> <span class="mf">0.050842443</span><span class="p">,</span> <span class="mf">0.037062292</span><span class="p">]</span>
+    <span class="n">Cp_wind_speeds</span><span class="p">:</span> <span class="p">[</span><span class="mf">2.999999831</span><span class="p">,</span> <span class="mf">3.499999916</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">4.500000084</span><span class="p">,</span> <span class="mf">4.750000126</span><span class="p">,</span> <span class="mf">5.000000169</span><span class="p">,</span> <span class="mf">5.249999874</span><span class="p">,</span> <span class="mf">5.999999663</span><span class="p">,</span> <span class="mf">6.199999966</span><span class="p">,</span> <span class="mf">6.40000027</span><span class="p">,</span> <span class="mf">6.499999747</span><span class="p">,</span> <span class="mf">6.55000016</span><span class="p">,</span> <span class="mf">6.599999899</span><span class="p">,</span> <span class="mf">6.700000051</span><span class="p">,</span> <span class="mf">6.800000202</span><span class="p">,</span> <span class="mf">6.900000354</span><span class="p">,</span> <span class="mf">6.919999845</span><span class="p">,</span> <span class="mf">6.929999928</span><span class="p">,</span> <span class="mf">6.94000001</span><span class="p">,</span> <span class="mf">6.950000093</span><span class="p">,</span> <span class="mf">6.960000175</span><span class="p">,</span> <span class="mf">6.969999584</span><span class="p">,</span> <span class="mf">6.980000341</span><span class="p">,</span> <span class="mf">6.989999749</span><span class="p">,</span> <span class="mf">6.999999831</span><span class="p">,</span> <span class="mf">7.499999916</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mf">8.500000084</span><span class="p">,</span> <span class="mf">9.000000169</span><span class="p">,</span> <span class="mf">9.500000253</span><span class="p">,</span> <span class="mf">10.00000034</span><span class="p">,</span> <span class="mf">10.2499997</span><span class="p">,</span> <span class="mf">10.49999975</span><span class="p">,</span> <span class="mf">10.60000057</span><span class="p">,</span> <span class="mf">10.70000005</span><span class="p">,</span> <span class="mf">10.72000022</span><span class="p">,</span> <span class="mf">10.73999971</span><span class="p">,</span> <span class="mf">10.76000055</span><span class="p">,</span> <span class="mf">10.78000004</span><span class="p">,</span> <span class="mf">10.78400034</span><span class="p">,</span> <span class="mf">10.78600049</span><span class="p">,</span> <span class="mf">10.78699989</span><span class="p">,</span> <span class="mf">10.78799997</span><span class="p">,</span> <span class="mf">10.78899937</span><span class="p">,</span> <span class="mf">10.78950042</span><span class="p">,</span> <span class="mf">10.8000002</span><span class="p">,</span> <span class="mf">10.89999968</span><span class="p">,</span> <span class="mf">10.99999983</span><span class="p">,</span> <span class="mf">11.24999987</span><span class="p">,</span> <span class="mf">11.50000059</span><span class="p">,</span> <span class="mf">11.75000063</span><span class="p">,</span> <span class="mf">11.99999933</span><span class="p">,</span> <span class="mf">12.99999949</span><span class="p">,</span> <span class="mf">13.99999966</span><span class="p">,</span> <span class="mf">14.99999983</span><span class="p">,</span> <span class="mf">17.50000025</span><span class="p">,</span> <span class="mf">20.00000067</span><span class="p">,</span> <span class="mf">22.49999975</span><span class="p">,</span> <span class="mf">24.99999882</span><span class="p">]</span>
+  <span class="n">Ct_curve</span><span class="p">:</span>
+    <span class="n">Ct_values</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.819748943</span><span class="p">,</span> <span class="mf">0.801112031</span><span class="p">,</span> <span class="mf">0.808268424</span><span class="p">,</span> <span class="mf">0.821910918</span><span class="p">,</span> <span class="mf">0.822876237</span><span class="p">,</span> <span class="mf">0.823265981</span><span class="p">,</span> <span class="mf">0.830989358</span><span class="p">,</span> <span class="mf">0.834932456</span><span class="p">,</span> <span class="mf">0.833618598</span><span class="p">,</span> <span class="mf">0.83180478</span><span class="p">,</span> <span class="mf">0.829011103</span><span class="p">,</span> <span class="mf">0.826909201</span><span class="p">,</span> <span class="mf">0.824740997</span><span class="p">,</span> <span class="mf">0.820429675</span><span class="p">,</span> <span class="mf">0.816176257</span><span class="p">,</span> <span class="mf">0.811200233</span><span class="p">,</span> <span class="mf">0.809740903</span><span class="p">,</span> <span class="mf">0.808780765</span><span class="p">,</span> <span class="mf">0.808102306</span><span class="p">,</span> <span class="mf">0.807566626</span><span class="p">,</span> <span class="mf">0.807251977</span><span class="p">,</span> <span class="mf">0.80662442</span><span class="p">,</span> <span class="mf">0.806495512</span><span class="p">,</span> <span class="mf">0.806806173</span><span class="p">,</span> <span class="mf">0.806651158</span><span class="p">,</span> <span class="mf">0.805469658</span><span class="p">,</span> <span class="mf">0.804571567</span><span class="p">,</span> <span class="mf">0.803949121</span><span class="p">,</span> <span class="mf">0.803904895</span><span class="p">,</span> <span class="mf">0.803708734</span><span class="p">,</span> <span class="mf">0.80345211</span><span class="p">,</span> <span class="mf">0.801706154</span><span class="p">,</span> <span class="mf">0.801777393</span><span class="p">,</span> <span class="mf">0.768657554</span><span class="p">,</span> <span class="mf">0.70731525</span><span class="p">,</span> <span class="mf">0.698507743</span><span class="p">,</span> <span class="mf">0.690211963</span><span class="p">,</span> <span class="mf">0.682335591</span><span class="p">,</span> <span class="mf">0.674835939</span><span class="p">,</span> <span class="mf">0.673371183</span><span class="p">,</span> <span class="mf">0.672646111</span><span class="p">,</span> <span class="mf">0.672283185</span><span class="p">,</span> <span class="mf">0.671921569</span><span class="p">,</span> <span class="mf">0.671564033</span><span class="p">,</span> <span class="mf">0.671386994</span><span class="p">,</span> <span class="mf">0.667639697</span><span class="p">,</span> <span class="mf">0.635292304</span><span class="p">,</span> <span class="mf">0.607277698</span><span class="p">,</span> <span class="mf">0.548965866</span><span class="p">,</span> <span class="mf">0.501379105</span><span class="p">,</span> <span class="mf">0.460982977</span><span class="p">,</span> <span class="mf">0.425965654</span><span class="p">,</span> <span class="mf">0.32116631</span><span class="p">,</span> <span class="mf">0.2511023</span><span class="p">,</span> <span class="mf">0.201415182</span><span class="p">,</span> <span class="mf">0.125653944</span><span class="p">,</span> <span class="mf">0.08506697</span><span class="p">,</span> <span class="mf">0.061026446</span><span class="p">,</span> <span class="mf">0.045814967</span><span class="p">]</span>
+    <span class="n">Ct_wind_speeds</span><span class="p">:</span> <span class="p">[</span><span class="mf">2.999999831</span><span class="p">,</span> <span class="mf">3.499999916</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">4.500000084</span><span class="p">,</span> <span class="mf">4.750000126</span><span class="p">,</span> <span class="mf">5.000000169</span><span class="p">,</span> <span class="mf">5.249999874</span><span class="p">,</span> <span class="mf">5.999999663</span><span class="p">,</span> <span class="mf">6.199999966</span><span class="p">,</span> <span class="mf">6.40000027</span><span class="p">,</span> <span class="mf">6.499999747</span><span class="p">,</span> <span class="mf">6.55000016</span><span class="p">,</span> <span class="mf">6.599999899</span><span class="p">,</span> <span class="mf">6.700000051</span><span class="p">,</span> <span class="mf">6.800000202</span><span class="p">,</span> <span class="mf">6.900000354</span><span class="p">,</span> <span class="mf">6.919999845</span><span class="p">,</span> <span class="mf">6.929999928</span><span class="p">,</span> <span class="mf">6.94000001</span><span class="p">,</span> <span class="mf">6.950000093</span><span class="p">,</span> <span class="mf">6.960000175</span><span class="p">,</span> <span class="mf">6.969999584</span><span class="p">,</span> <span class="mf">6.980000341</span><span class="p">,</span> <span class="mf">6.989999749</span><span class="p">,</span> <span class="mf">6.999999831</span><span class="p">,</span> <span class="mf">7.499999916</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mf">8.500000084</span><span class="p">,</span> <span class="mf">9.000000169</span><span class="p">,</span> <span class="mf">9.500000253</span><span class="p">,</span> <span class="mf">10.00000034</span><span class="p">,</span> <span class="mf">10.2499997</span><span class="p">,</span> <span class="mf">10.49999975</span><span class="p">,</span> <span class="mf">10.60000057</span><span class="p">,</span> <span class="mf">10.70000005</span><span class="p">,</span> <span class="mf">10.72000022</span><span class="p">,</span> <span class="mf">10.73999971</span><span class="p">,</span> <span class="mf">10.76000055</span><span class="p">,</span> <span class="mf">10.78000004</span><span class="p">,</span> <span class="mf">10.78400034</span><span class="p">,</span> <span class="mf">10.78600049</span><span class="p">,</span> <span class="mf">10.78699989</span><span class="p">,</span> <span class="mf">10.78799997</span><span class="p">,</span> <span class="mf">10.78899937</span><span class="p">,</span> <span class="mf">10.78950042</span><span class="p">,</span> <span class="mf">10.8000002</span><span class="p">,</span> <span class="mf">10.89999968</span><span class="p">,</span> <span class="mf">10.99999983</span><span class="p">,</span> <span class="mf">11.24999987</span><span class="p">,</span> <span class="mf">11.50000059</span><span class="p">,</span> <span class="mf">11.75000063</span><span class="p">,</span> <span class="mf">11.99999933</span><span class="p">,</span> <span class="mf">12.99999949</span><span class="p">,</span> <span class="mf">13.99999966</span><span class="p">,</span> <span class="mf">14.99999983</span><span class="p">,</span> <span class="mf">17.50000025</span><span class="p">,</span> <span class="mf">20.00000067</span><span class="p">,</span> <span class="mf">22.49999975</span><span class="p">,</span> <span class="mf">24.99999882</span><span class="p">]</span>
+<span class="n">hub_height</span><span class="p">:</span> <span class="mf">150.0</span>
+<span class="n">rotor_diameter</span><span class="p">:</span> <span class="mf">240.0</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">windIO</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="turbine.html">Turbine</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="plant.html">Plant</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="wind_energy_system.html">Wind Energy System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plant_energy_site.html">Site</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plant_energy_resource.html">Energy Resource</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Wind Farm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#properties">Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide.html">Contributing Guide</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="plant.html">Plant</a><ul>
+      <li>Previous: <a href="plant_energy_resource.html" title="previous chapter">Energy Resource</a></li>
+      <li>Next: <a href="developer_guide.html" title="next chapter">Contributing Guide</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2020, IEA Wind Task 37.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.1.3</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="../_sources/source/wind_farm.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
