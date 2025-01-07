@@ -115,35 +115,63 @@ a single person may participate as multiple roles.
 In the context of windIO, the following are identified:</p>
 <ul class="simple">
 <li><p><strong>Contributor</strong>: Adds to or modifies content in the windIO repository.</p></li>
-<li><p><strong>Reviewer</strong>: Reviews and critiques contributions by <strong>developers</strong>.</p></li>
+<li><p><strong>Reviewer</strong>: Reviews and critiques changes by contributors.</p></li>
 <li><p><strong>Maintainer</strong>: Manages the repository by supporting the review process, managing issues,
 and generally ensuring the quality of the repository.</p></li>
 </ul>
 <p>All roles are required to work together in the development of windIO, and
-authorship of a change is given to contributors, reviewers, and maintainers.</p>
+authorship of a change is given to contributors, reviewers, and maintainers.
+Contributors should drive the progress of windIO, reviewers should ensure quality and
+control, and maintainers should serve as a facilitators and enablers.
+There is an implicit tension between these roles, and an effective development process
+requires maintaining a balance.</p>
 <section id="contributor-responsibilities">
 <h3>Contributor Responsibilities<a class="headerlink" href="#contributor-responsibilities" title="Link to this heading">¶</a></h3>
-<p>Contributors are responsible for communicating their intention to make a change to the rest
-of the community of stakeholders.
-A change should be proposed through a GitHub Issue or Discussion, and relevant people
-should be tagged directly for feedback.
+<p>Contributors are responsible for communicating their intention to make a change through
+a GitHub Issue or Discussion, and relevant people should be tagged directly for feedback.
 After accepting feedback and updating the proposal, the contributor is responsible for
 implementing the change and submitting a pull request.</p>
 <p>A pull request is owned by the <em>contributor</em>.
 It is their responsibility to fully describe the change, the motivation behind it, and the
-impact on windIO and the adjacent ecosystem.</p>
+impact on windIO and the adjacent ecosystem.
+The contributor should work work maintainers to establish a timeline for review and
+incorporating feedback.
+They should also keep a pull request up to date with the latest changes in the target branch.</p>
 </section>
 <section id="reviewer-responsibilities">
 <h3>Reviewer Responsibilities<a class="headerlink" href="#reviewer-responsibilities" title="Link to this heading">¶</a></h3>
 <p>Reviewers are responsible for providing feedback on the pull request.
-Approving a change indicates agreement with the change, and it implies that they will accept
-responsibility for the consequences of the change.</p>
-<p>At this point, it is the responsibility of <em>reviewers</em> and <em>maintainers</em> to evaluate the proposed
-change and provide feedback.</p>
-<p>After a pull request is submitted, <em>maintainers</em> should ensure the following:
-- An appropriate <em>reviewer</em> is listed
-- Conflicting works in progress are flagged
-- A tentative timeline for review, design iteration, and merge is established</p>
+Approving a change indicates agreement with the change, and it implies that the reviewer,
+in addition to the contributor, is a relevant person to contact for future questions.</p>
+<p>After being assigned to a pull request, a reviewer should coordinate with the contributor and
+maintainers to establish a reasonable review timeline.</p>
+</section>
+<section id="maintainer-responsibilities">
+<h3>Maintainer Responsibilities<a class="headerlink" href="#maintainer-responsibilities" title="Link to this heading">¶</a></h3>
+<p>Maintainers are responsible for ensuring that the windIO repository and processes around
+and within it continue to serve the windIO community well.
+While the contributor and reviewer roles are activated by a specific pull request,
+the maintainer role is always active.
+Maintainers should keep a high level perspective of the project scope and intent, the
+repository infrastructure, and the processes used to develop windIO.
+This includes managing issues and discussions, reviewing pull requests, and ensuring that
+the repository infrastructure is up to date.
+Maintainers should also work with contributors and reviewers to keep the development process
+moving forward.</p>
+<p>While a pull request is active, maintainers should ensure the following:</p>
+<ul class="simple">
+<li><p>An appropriate reviewer is listed</p></li>
+<li><p>Conflicting works in progress are flagged</p></li>
+<li><p>A tentative timeline for review, design iteration, and merge is established</p></li>
+</ul>
+<p>Otherwise, maintainers should consider the following:</p>
+<ul class="simple">
+<li><p>Dependencies are up to date</p></li>
+<li><p>Documentation sites are functioning</p></li>
+<li><p>Tests are running, passing, and addressing the intended targets</p></li>
+<li><p>Issues and discussions are engaging the relevant people</p></li>
+<li><p>Whether gaps or conflicts have emerged from individual development efforts</p></li>
+</ul>
 </section>
 </section>
 </section>
@@ -188,6 +216,7 @@ change and provide feedback.</p>
 <li class="toctree-l2"><a class="reference internal" href="#roles-responsibilities-and-expectations">Roles, Responsibilities and Expectations</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#contributor-responsibilities">Contributor Responsibilities</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#reviewer-responsibilities">Reviewer Responsibilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#maintainer-responsibilities">Maintainer Responsibilities</a></li>
 </ul>
 </li>
 </ul>
