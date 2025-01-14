@@ -61,20 +61,19 @@ Remember that we’re all on the same team despite differences in our day to day
 <h2>Contribution management<a class="headerlink" href="#contribution-management" title="Link to this heading">¶</a></h2>
 <p>Contributions are tracked with <a class="reference external" href="https://docs.github.com/en/get-started/start-your-journey/about-github-and-git#about-git">git</a>
 and coordinated with <a class="reference external" href="https://docs.github.com/en/get-started/start-your-journey/about-github-and-git#about-github">GitHub</a>.</p>
-<p>In general, the <a class="reference external" href="https://nvie.com/posts/a-successful-git-branching-model/">git-flow</a> model is used
-to navigate parallel development efforts.
+<p>In general, a form of the <a class="reference external" href="https://nvie.com/posts/a-successful-git-branching-model/">git-flow</a>
+model is used to navigate parallel development efforts.
 Here’s a brief summary:</p>
 <ul class="simple">
 <li><p>Day to day work happens on feature branches on the principle repository or forks. The feature
 branches may be unstable, and there’s no expectation that they are complete.
 These branches should have a simple name that is indicative of the scope of the work such as
 <cite>feature/support_supersonic_tipspeeds</cite>.</p></li>
-<li><p>The <cite>develop</cite> branch absorbs completed feature branches through pull requests.
-This branch is stable, but not yet complete and ready for general use. For example,
-documentation or infrastructure improvements may be required in order to support changes
-introduced through feature branches.</p></li>
-<li><p>The <cite>main</cite> branch is the stable and well-tested with the lowest frequency of changes.
-It should always represent the “released” version of windIO.</p></li>
+<li><p>The <cite>main</cite> branch absorbs completed feature branches through pull requests.
+This branch is expected to be stable and available for general use. However, breaking changes
+are allowed since the previous release.</p></li>
+<li><p>A tag is added to a commit on the <cite>main</cite> branch to note a released version of windIO. Tags
+typically have a version number such as <cite>v1.2.3</cite>.</p></li>
 </ul>
 <section id="pull-requests">
 <h3>Pull requests<a class="headerlink" href="#pull-requests" title="Link to this heading">¶</a></h3>
