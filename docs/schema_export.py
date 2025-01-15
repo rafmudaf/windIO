@@ -10,17 +10,20 @@ if __name__ == "__main__":
     config = GenerationConfiguration(
         minify=False,
         copy_css=True,
+        copy_js=True,
         expand_buttons=True,
-        show_breadcrumbs=False,
+        show_breadcrumbs=False,     # True doesn't seem to work
         show_toc=True,
-        collapse_long_descriptions=False,
-        collapse_long_examples=False,
+        collapse_long_descriptions=True,
+        collapse_long_examples=True,
         description_is_markdown=True,
         examples_as_yaml=True,
-        # template_md_options={
+        link_to_reused_ref=True,    # Should we do this or duplicate the entry?
+        deprecated_from_description=True,
+        template_md_options={
         #     "badge_as_image": True,
-        #     "show_heading_numbers": False
-        # },
+            "show_heading_numbers": True
+        },
         # template_name="md_nested"
     )
 
