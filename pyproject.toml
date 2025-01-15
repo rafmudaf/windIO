@@ -35,6 +35,7 @@ dependencies = [
 [project.optional-dependencies]
 docs = [
     "sphinx",
+    'json-schema-for-humans',
 ]
 test = [
     "pytest",
