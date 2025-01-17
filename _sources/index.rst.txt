@@ -17,8 +17,6 @@ The frameworks are implemented in two yaml-schemas, one for the turbine and one 
    :maxdepth: 3
    :caption: Contents:
 
-   source/turbine
-   source/plant
    source/turbine_schema_doc
    source/plant_schema_doc
    source/developer_guide
