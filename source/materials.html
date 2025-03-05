@@ -1,0 +1,724 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Materials &#8212; windIO v1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=e160b93e"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'source/materials';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Control" href="control.html" />
+    <link rel="prev" title="Airfoils" href="airfoils.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">windIO v1.0 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="turbine.html">
+    Turbine
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="plant.html">
+    Plant
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="developer_guide.html">
+    Contributing Guide
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="turbine.html">
+    Turbine
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="plant.html">
+    Plant
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="developer_guide.html">
+    Contributing Guide
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="assembly.html">Assembly</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="components.html">Components</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="blade.html">Blade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hub.html">Hub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nacelle.html">Nacelle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tower.html">Tower</a></li>
+<li class="toctree-l2"><a class="reference internal" href="monopile.html">Monopile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="floating.html">Floating Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mooring.html">Mooring</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="airfoils.html">Airfoils</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="control.html">Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment.html">Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="costs.html">Costs</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="turbine.html" class="nav-link">Turbine</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Materials</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="materials">
+<h1>Materials<a class="headerlink" href="#materials" title="Link to this heading">#</a></h1>
+<p>windIO defines a material database, which consists of a list of entries each marked by a dash.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   -  name: Gelcoat
+      orth: 0
+      rho: 1235.0
+      E: 3.440e+009
+      G: 1.323e+009
+      nu: 0.300
+      alpha: 0.0
+      Xt: 74
+      Xc: 87
+      S: 2.126e+7
+      GIc: 303
+      GIIc: 3446
+      alp0: 53
+      ply_t: 5.0E-4
+      waste: 0.25
+      unit_cost: 7.23
+      component_id: 0
+   -  name: steel
+      description: Steel of the tower and monopile ASTM A572 Grade 50
+      source: http://www.matweb.com/search/DataSheet.aspx?MatGUID=9ced5dc901c54bd1aef19403d0385d7f
+      orth: 0
+      rho: 7800
+      alpha: 0.0
+      E: 200.e+009
+      nu: 0.3
+      G: 79.3e+009
+      GIc: 0  #Place holder, currently not used
+      GIIc: 0  #Place holder, currently not used
+      alp0: 0  #Place holder, currently not used
+      Xt: 450.e+006
+      Xc: 450.e+006
+      S: 0
+      Xy: 345.e+6
+      m: 3
+      unit_cost: 0.7
+   -  name: steel_drive
+      description: Steel of the drivetrain ASTM 4140 40Cr1Mo28
+      source: http://www.matweb.com/search/DataSheet.aspx?MatGUID=38108bfd64c44b4c9c6a02af78d5b6c6
+      orth: 0
+      rho: 7850
+      alpha: 0.0
+      E: 205.e+009
+      nu: 0.3
+      G: 80.0e+009
+      GIc: 0  #Place holder, currently not used
+      GIIc: 0  #Place holder, currently not used
+      alp0: 0  #Place holder, currently not used
+      Xt: 814.e+006
+      Xc: 814.e+006
+      S: 0
+      Xy: 485.e+6
+      m: 3
+      unit_cost: 0.9
+   -  name: cast_iron
+      description: Cast iron for hub and nacelle components
+      source: TODO
+      orth: 0
+      rho: 7200
+      alpha: 0.0
+      E: 118.e+009
+      nu: 0.3
+      G: 47.6e+009
+      GIc: 0  #Place holder, currently not used
+      GIIc: 0  #Place holder, currently not used
+      alp0: 0  #Place holder, currently not used
+      Xt: 310.e+006
+      Xc: 310.e+006
+      S: 0
+      Xy: 265.e+6
+      m: 3
+      unit_cost: 0.5
+   -  name: glass_uni
+      description: Vectorply E-LT-5500, Epikote MGS RIMR 135/Epicure MGS RIMH 1366 epoxy
+      source: MSU composites database 3D property tests, Engineering Mechanics of Composite Materials, Daniel, I &amp; Ishai, O., 1994, pg. 34
+      orth: 1
+      rho: 1940.0
+      E: [4.46E+10, 1.7E+10, 1.67E+10]
+      G: [3.27E+9, 3.48E+9, 3.5E+9]
+      nu: [0.262, 0.35, 0.264]
+      Xt: [6.092E+8, 3.81E+7, 1.529E+7]
+      Xc: [4.7471E+8, 1.1264E+8, 1.1322E+8]
+      S: [1.891E+7, 1.724E+7, 1.316E+7]
+      m: 10
+      GIc: 303
+      GIIc: 3446
+      alp0: 53
+      fvf: 0.57
+      fwf: 0.7450682696347697
+      ply_t: 0.005
+      unit_cost: 1.87
+      waste: 0.05
+      fiber_density: 2535.5
+      area_density_dry: 7.227162215457267
+      component_id: 5
+   -  name: CarbonUD
+      E: [114500000000.0, 8390000000.0, 8390000000.0]
+      G: [5990000000.0, 5990000000.0, 5990000000.0]
+      rho: 1220.0
+      orth: 1
+      nu: [0.27, 0.27, 0.27]
+      Xt: [1546.e+6, 0.0, 0.0]
+      Xc: [1047.e+6, 0.0, 0.0]
+      S: [0.0, 0.0, 0.0]
+      m: 16.1
+      GIc: 0.0
+      GIIc: 0.0
+      alp0: 0.0
+      fvf: 0.1076923076923077 #0.5384615384615385
+      fwf: 0.15889029003783103 #0.6461538461538463
+      ply_t: 0.005158730158730159 #0.0010317460317460314
+      unit_cost: 30.
+      waste: 0.05
+      fiber_density: 1800.
+      area_density_dry: 1.000
+      component_id: 4
+   -  name: glass_biax
+      description: Vectorply E-LT-5500, Epikote MGS RIMR 135/Epicure MGS RIMH 1366 epoxy
+      source: MSU composites database 3D property tests, Engineering Mechanics of Composite Materials, Daniel, I &amp; Ishai, O., 1994, pg. 34
+      orth: 1
+      rho: 1940.0
+      E: [1.11e+10, 1.11e+10, 1.67e+10]
+      G: [1.353e+10, 3.49e+9, 3.49e+9]
+      nu: [0.5, 0.0, 0.066]
+      Xt: [4.29e+7, 4.26e+7, 1.53e+7]
+      Xc: [7.07e+7, 7.07e+7, 1.132e+8]
+      S: [1.034e+8, 1.72e+7, 1.32e+7]
+      m: 10
+      GIc: 303
+      GIIc: 3446
+      alp0: 53
+      fvf: 0.57
+      fwf: 0.7450682696347697
+      ply_t: 0.001
+      waste: 0.15
+      unit_cost: 3.00
+      fiber_density: 2535.5
+      area_density_dry: 1.4454324430914534
+      component_id: 3
+      roll_mass: 181.4368
+   -  name: glass_triax
+      description: Vectorply E-LT-5500, Epikote MGS RIMR 135/Epicure MGS RIMH 1366 epoxy
+      source: MSU composites database 3D property tests, Engineering Mechanics of Composite Materials, Daniel, I &amp; Ishai, O., 1994, pg. 34
+      orth: 1.0
+      rho: 1940.0
+      E: [2.87e+10, 1.66e+10, 1.67e+10]
+      G: [8.4e+9, 3.49e+9, 3.49e+9]
+      nu: [0.5, 0.0, 0.17]
+      Xt: [3.96e+8, 7.64e+7, 1.53e+7]
+      Xc: [4.489e+8, 1.747e+8, 1.132e+8]
+      S: [1.034e+8, 1.72e+7, 1.32e+7]
+      m: 10
+      GIc: 303
+      GIIc: 3446
+      alp0: 53
+      fvf: 0.57
+      fwf: 0.7450682696347697
+      ply_t: 0.001
+      unit_cost: 2.86
+      waste: 0.15
+      fiber_density: 2535.5
+      area_density_dry: 1.4454324430914534
+      component_id: 2
+      roll_mass: 181.4368
+   -  name: medium_density_foam
+      description: Airex C70.130 PVC Foam, source &#39;https://www.3accorematerials.com/uploads/documents/TDS-AIREX-C70-E_1106.pdf&#39;
+      orth: 0.0
+      rho: 130.0
+      E: 1.292e+8
+      G: 4.8946969696969695e+7
+      nu: 0.32
+      Xt: 2083000.0
+      Xc: 1563000.0
+      S: 1250000.0
+      GIc: 303
+      GIIc: 3446
+      alp0: 53
+      component_id: 1
+      waste: 0.2
+      unit_cost: 13
+   -  name: resin
+      description: epoxy
+      E: 1.e+6
+      nu: 0.3  #Place holder, currently not used
+      G: 312500.0  #Place holder, currently not used
+      GIc: 0  #Place holder, currently not used
+      GIIc: 0  #Place holder, currently not used
+      alp0: 0  #Place holder, currently not used
+      Xt: 0  #Place holder, currently not used
+      Xc: 0  #Place holder, currently not used
+      S: 0  #Place holder, currently not used
+      rho: 1150.
+      alpha: 0.0
+      orth: 0
+      unit_cost: 3.63
+   -  name: adhesive
+      description: Sample adhesive
+      source: https://www.nrel.gov/docs/fy19osti/73585.pdf
+      orth: 0
+      rho: 1100
+      E: 4.56e+006
+      nu: 0.49
+      alpha: 0.0
+      Xt: 0.69e+006
+      Xc: 0.4e+006
+      S: 0.31e+006
+      G: 1520000.0
+      unit_cost: 9.0
+</pre></div>
+</div>
+<dl>
+<dt><code class="code docutils literal notranslate"><span class="pre">name</span></code><span class="classifier">String</span></dt><dd><p>Name of the material</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">description</span></code><span class="classifier">String</span></dt><dd><p>Optional string to describe the material</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">source</span></code><span class="classifier">String</span></dt><dd><p>Optional string to describe the origin of the material, for example referencing a report or a paper</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">orth</span></code><span class="classifier">Boolean</span></dt><dd><p>Flag specifying whether a material is isotropic (0) or orthotropic (1). This determines whether some of the fields below are specified as a float or an array of floats.</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">rho</span></code><span class="classifier">Float, kg/m3</span></dt><dd><p>Density of the material. For composites, this is the density of the laminate once cured.</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">E</span></code><span class="classifier">Float (<code class="code docutils literal notranslate"><span class="pre">orth=0</span></code>), array of three floats (<code class="code docutils literal notranslate"><span class="pre">orth=1</span></code>), Pa</span></dt><dd><p>Stiffness modulus. For orthotropic materials, it consists of an array with E11, E22, and E33 (see below about the reference system).</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">G</span></code><span class="classifier">Float (<code class="code docutils literal notranslate"><span class="pre">orth=0</span></code>), array of three floats (<code class="code docutils literal notranslate"><span class="pre">orth=1</span></code>), Pa</span></dt><dd><p>Shear stiffness modulus. For orthotropic materials, it consists of an array with G12, G13, and G23.</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">nu</span></code><span class="classifier">Float (<code class="code docutils literal notranslate"><span class="pre">orth=0</span></code>), array of three floats (<code class="code docutils literal notranslate"><span class="pre">orth=1</span></code>)</span></dt><dd><p>Poisson ratio. For orthotropic materials, it consists of an array with nu12, nu13, and nu23.</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">Xt</span></code><span class="classifier">Float (<code class="code docutils literal notranslate"><span class="pre">orth=0</span></code>), array of three floats (<code class="code docutils literal notranslate"><span class="pre">orth=1</span></code>), Pa</span></dt><dd><p>Ultimate tensile strength. For orthotropic materials, it consists of an array with Xt11, Xt22, and Xt33.</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">Xc</span></code><span class="classifier">Float (<code class="code docutils literal notranslate"><span class="pre">orth=0</span></code>), array of three floats (<code class="code docutils literal notranslate"><span class="pre">orth=1</span></code>), Pa</span></dt><dd><p>Ultimate compressive strength. For orthotropic materials, it consists of an array with Xc11, Xc22, and Xc33. Values are defined positive.</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">Xy</span></code><span class="classifier">Float, Pa</span></dt><dd><p>Ultimate yield strength.</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">S</span></code><span class="classifier">Float (<code class="code docutils literal notranslate"><span class="pre">orth=0</span></code>), array of three floats (<code class="code docutils literal notranslate"><span class="pre">orth=1</span></code>), Pa</span></dt><dd><p>Ultimate shear strength. For orthotropic materials, it consists of an array with S12, S13, and S23. Values are defined positive.</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">alpha</span></code><span class="classifier">Float (<code class="code docutils literal notranslate"><span class="pre">orth=0</span></code>) or array of three floats (<code class="code docutils literal notranslate"><span class="pre">orth=1</span></code>), 1/K</span></dt><dd><p>Thermal coefficient of expansion. For orthotropic materials, it consists of an array with alpha11, alpha22, and alpha33.</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">GIc</span></code><span class="classifier">Float, J/m2</span></dt><dd><p>Mode 1 critical energy-release rate.</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">GIIc</span></code><span class="classifier">Float, J/m2</span></dt><dd><p>Mode 2 critical energy-release rate.</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">alp0</span></code><span class="classifier">Float, rad</span></dt><dd><p>Fracture angle under pure transverse compression.</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">fvf</span></code><span class="classifier">Float</span></dt><dd><p>Fiber volume fraction of a composite material. The minimum values is 0 (only matrix), the maximum value is 1 (only fibers).</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">fwf</span></code><span class="classifier">Float</span></dt><dd><p>Fiber weight fraction of a composite material. The minimum values is 0 (only matrix), the maximum value is 1 (only fibers).</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">ply_t</span></code><span class="classifier">Float</span></dt><dd><p>Ply thickness of a composite material. The unit of measure is m. The actual laminate thickness is defined in the fields <code class="code docutils literal notranslate"><span class="pre">components</span></code>.</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">unit_cost</span></code><span class="classifier">Float, $/kg</span></dt><dd><p>Unit cost of the material. For composites, this is the unit cost of the dry fabric.</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">fiber_density</span></code><span class="classifier">Float, kg/m3</span></dt><dd><p>Density of the fibers of a composite material. Standard glass fiber has a fiber density of approximately 2600 kg/m3, while standard carbon fiber has a fiber density of approximately 1800 kg/m3.</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">A</span></code><span class="classifier">Float (<code class="code docutils literal notranslate"><span class="pre">orth=0</span></code>) or array of three floats (<code class="code docutils literal notranslate"><span class="pre">orth=1</span></code>)</span></dt><dd><p>Fatigue S/N curve fitting parameter S=A*N^(-1/m).</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">m</span></code><span class="classifier">Float (<code class="code docutils literal notranslate"><span class="pre">orth=0</span></code>) or array of three floats (<code class="code docutils literal notranslate"><span class="pre">orth=1</span></code>)</span></dt><dd><p>Fatigue S/N curve fitting parameter S=A*N^(-1/m).</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">R</span></code><span class="classifier">Float (<code class="code docutils literal notranslate"><span class="pre">orth=0</span></code>) or array of three floats (<code class="code docutils literal notranslate"><span class="pre">orth=1</span></code>)</span></dt><dd><p>Fatigue stress ratio.</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">area_density_dry</span></code><span class="classifier">Float, kg/m2</span></dt><dd><p>Aerial density of the fabric of a composite material.</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">waste</span></code><span class="classifier">Float</span></dt><dd><p>Fraction of material that ends up wasted during manufacturing. This quantity is used in the NREL blade cost model <a class="reference external" href="https://www.nrel.gov/docs/fy19osti/73585.pdf">https://www.nrel.gov/docs/fy19osti/73585.pdf</a>.</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">roll_mass</span></code><span class="classifier">Float, kg</span></dt><dd><p>Mass of a roll of fabric. This quantity is used in the NREL blade cost model <a class="reference external" href="https://www.nrel.gov/docs/fy19osti/73585.pdf">https://www.nrel.gov/docs/fy19osti/73585.pdf</a>.</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">component_id</span></code><span class="classifier">Integer</span></dt><dd><p>Flag to define the manufacturing process behind a laminates. It is used by the NREL blade cost model <a class="reference external" href="https://www.nrel.gov/docs/fy19osti/73585.pdf">https://www.nrel.gov/docs/fy19osti/73585.pdf</a> . 0 - coating, 1 - sandwich filler , 2 - shell skin, 3 - shear webs, 4 - spar caps, 5 - TE reinf.</p>
+</dd>
+</dl>
+<p>The schema enforces that the fields <code class="code docutils literal notranslate"><span class="pre">name</span></code>, <code class="code docutils literal notranslate"><span class="pre">orth</span></code>, <code class="code docutils literal notranslate"><span class="pre">rho</span></code>, <code class="code docutils literal notranslate"><span class="pre">E</span></code>, and <code class="code docutils literal notranslate"><span class="pre">nu</span></code> are specified.</p>
+<p>For composites, direction 1 is aligned with the main fiber direction, direction 2 is in the plane transverse to the fibers, and direction 3 is perspendicular to the laminate plane. Note that fiber angles are specified in <code class="code docutils literal notranslate"><span class="pre">internal_structure_2d_fem</span></code>.</p>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="airfoils.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Airfoils</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="control.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Control</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/source/materials.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2020, IEA Wind Task 37.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

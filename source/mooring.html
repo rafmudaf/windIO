@@ -1,0 +1,642 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Mooring &#8212; windIO v1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=e160b93e"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'source/mooring';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Airfoils" href="airfoils.html" />
+    <link rel="prev" title="Floating Platform" href="floating.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">windIO v1.0 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="turbine.html">
+    Turbine
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="plant.html">
+    Plant
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="developer_guide.html">
+    Contributing Guide
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="turbine.html">
+    Turbine
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="plant.html">
+    Plant
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="developer_guide.html">
+    Contributing Guide
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="assembly.html">Assembly</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="components.html">Components</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="blade.html">Blade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hub.html">Hub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nacelle.html">Nacelle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tower.html">Tower</a></li>
+<li class="toctree-l2"><a class="reference internal" href="monopile.html">Monopile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="floating.html">Floating Platform</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Mooring</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="airfoils.html">Airfoils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="materials.html">Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="control.html">Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment.html">Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="costs.html">Costs</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="turbine.html" class="nav-link">Turbine</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="components.html" class="nav-link">Components</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Mooring</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="mooring">
+<h1>Mooring<a class="headerlink" href="#mooring" title="Link to this heading">#</a></h1>
+<p>The mooring system ontology follows closely the input file format for MoorDyn or MAP++.  Additional information can be found in the <a class="reference external" href="http://www.matt-hall.ca/files/MoorDyn-Users-Guide-2017-08-16.pdf">MoorDyn user guide</a> .</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>        <span class="n">nodes</span><span class="p">:</span>
+            <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">line1_anchor</span>
+              <span class="n">node_type</span><span class="p">:</span> <span class="n">fixed</span>
+              <span class="n">joint</span><span class="p">:</span> <span class="n">anchor1</span>
+              <span class="n">anchor_type</span><span class="p">:</span> <span class="n">drag_embedment</span>
+            <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">line2_anchor</span>
+              <span class="n">node_type</span><span class="p">:</span> <span class="n">fixed</span>
+              <span class="n">joint</span><span class="p">:</span> <span class="n">anchor2</span>
+              <span class="n">anchor_type</span><span class="p">:</span> <span class="n">drag_embedment</span>
+            <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">line3_anchor</span>
+              <span class="n">node_type</span><span class="p">:</span> <span class="n">fixed</span>
+              <span class="n">joint</span><span class="p">:</span> <span class="n">anchor3</span>
+              <span class="n">anchor_type</span><span class="p">:</span> <span class="n">drag_embedment</span>
+
+            <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">line1_vessel</span>
+              <span class="n">node_type</span><span class="p">:</span> <span class="n">vessel</span>
+              <span class="n">joint</span><span class="p">:</span> <span class="n">col1_fairlead</span>
+              <span class="n">fairlead_type</span><span class="p">:</span> <span class="n">rigid</span>
+            <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">line2_vessel</span>
+              <span class="n">node_type</span><span class="p">:</span> <span class="n">vessel</span>
+              <span class="n">joint</span><span class="p">:</span> <span class="n">col2_fairlead</span>
+              <span class="n">fairlead_type</span><span class="p">:</span> <span class="n">rigid</span>
+            <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">line3_vessel</span>
+              <span class="n">joint</span><span class="p">:</span> <span class="n">col3_fairlead</span>
+              <span class="n">node_type</span><span class="p">:</span> <span class="n">vessel</span>
+              <span class="n">fairlead_type</span><span class="p">:</span> <span class="n">rigid</span>
+
+        <span class="n">lines</span><span class="p">:</span>
+            <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">line1</span>
+              <span class="n">node1</span><span class="p">:</span> <span class="n">line1_anchor</span>
+              <span class="n">node2</span><span class="p">:</span> <span class="n">line1_vessel</span>
+              <span class="n">line_type</span><span class="p">:</span> <span class="n">main</span>
+              <span class="n">unstretched_length</span><span class="p">:</span> <span class="mf">850.0</span>
+            <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">line2</span>
+              <span class="n">node1</span><span class="p">:</span> <span class="n">line2_anchor</span>
+              <span class="n">node2</span><span class="p">:</span> <span class="n">line2_vessel</span>
+              <span class="n">line_type</span><span class="p">:</span> <span class="n">main</span>
+              <span class="n">unstretched_length</span><span class="p">:</span> <span class="mf">850.0</span>
+            <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">line3</span>
+              <span class="n">node1</span><span class="p">:</span> <span class="n">line3_anchor</span>
+              <span class="n">node2</span><span class="p">:</span> <span class="n">line3_vessel</span>
+              <span class="n">line_type</span><span class="p">:</span> <span class="n">main</span>
+              <span class="n">unstretched_length</span><span class="p">:</span> <span class="mf">850.0</span>
+
+        <span class="n">line_types</span><span class="p">:</span>
+            <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">main</span>
+              <span class="n">diameter</span><span class="p">:</span> <span class="mf">0.185</span>
+              <span class="nb">type</span><span class="p">:</span> <span class="n">chain</span>
+              <span class="n">transverse_added_mass</span><span class="p">:</span> <span class="mf">1.0</span>
+              <span class="n">tangential_added_mass</span><span class="p">:</span> <span class="mf">0.0</span>
+              <span class="n">transverse_drag</span><span class="p">:</span> <span class="mf">1.6</span>
+              <span class="n">tangential_drag</span><span class="p">:</span> <span class="mf">0.1</span>
+
+        <span class="n">anchor_types</span><span class="p">:</span>
+            <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">drag_embedment</span>
+              <span class="nb">type</span><span class="p">:</span> <span class="n">drag_embedment</span>
+</pre></div>
+</div>
+<section id="nodes">
+<h2>nodes<a class="headerlink" href="#nodes" title="Link to this heading">#</a></h2>
+<dl class="simple">
+<dt><code class="code docutils literal notranslate"><span class="pre">name</span></code><span class="classifier">String</span></dt><dd><p>Name or ID of this node for use in line segment</p>
+</dd>
+</dl>
+<p><code class="code docutils literal notranslate"><span class="pre">node_type</span></code> : String from, [‘fixed’, ‘connection’, ‘vessel’]</p>
+<dl class="simple">
+<dt><code class="code docutils literal notranslate"><span class="pre">location</span></code><span class="classifier">Array of Floats, meter</span></dt><dd><p>– Coordinates x, y, and z of the connection (relative to inertial
+reference frame if Fixed or Connect, relative to platform
+reference frame if Vessel). In the case of Connect nodes, it is
+simply an initial guess for position before MoorDyn calculates the
+equilibrium initial position.</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">anchor_type</span></code><span class="classifier">String</span></dt><dd><p>Name of anchor type from anchor_type list</p>
+</dd>
+</dl>
+<p><code class="code docutils literal notranslate"><span class="pre">fairlead_type</span></code> : String from, [‘rigid’, ‘actuated’, ‘ball’]</p>
+<dl>
+<dt><code class="code docutils literal notranslate"><span class="pre">node_mass</span></code><span class="classifier">Float, kilogram</span></dt><dd><p>Clump weight mass</p>
+<p><em>Minimum</em> = 0.0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">node_volume</span></code><span class="classifier">Float, meter^3</span></dt><dd><p>Floater volume</p>
+<p><em>Minimum</em> = 0.0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">drag_area</span></code><span class="classifier">Float, meter^2</span></dt><dd><p>Product of drag coefficient and projected area (assumed constant
+in all directions) to calculate a drag force for the node</p>
+<p><em>Minimum</em> = 0.0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">added_mass</span></code><span class="classifier">Float</span></dt><dd><p>Added mass coefficient used along with node volume to calculate
+added mass on node</p>
+</dd>
+</dl>
+</section>
+<section id="lines">
+<h2>lines<a class="headerlink" href="#lines" title="Link to this heading">#</a></h2>
+<dl>
+<dt><code class="code docutils literal notranslate"><span class="pre">name</span></code><span class="classifier">String</span></dt><dd><p>ID of this line</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">line_type</span></code><span class="classifier">String</span></dt><dd><p>Reference to line type database</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">unstretched_length</span></code><span class="classifier">Float, meter</span></dt><dd><p>length of line segment prior to tensioning</p>
+<p><em>Minimum</em> = 0.0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">node1</span></code><span class="classifier">String</span></dt><dd><p>node id of first line connection</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">node2</span></code><span class="classifier">String</span></dt><dd><p>node id of second line connection</p>
+</dd>
+</dl>
+</section>
+<section id="line-types">
+<h2>line_types<a class="headerlink" href="#line-types" title="Link to this heading">#</a></h2>
+<dl>
+<dt><code class="code docutils literal notranslate"><span class="pre">name</span></code><span class="classifier">String</span></dt><dd><p>Name of material or line type to be referenced by line segments</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">diameter</span></code><span class="classifier">Float, meter</span></dt><dd><p>the volume-equivalent diameter of the line – the diameter of a
+cylinder having the same displacement per unit length</p>
+<p><em>Minimum</em> = 0.0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">mass_density</span></code><span class="classifier">Float, kilogram/meter</span></dt><dd><p>mass per unit length (in air)</p>
+<p><em>Minimum</em> = 0.0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">stiffness</span></code><span class="classifier">Float, Newton</span></dt><dd><p>axial line stiffness, product of elasticity modulus and cross-
+sectional area</p>
+<p><em>Minimum</em> = 0.0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">cost</span></code><span class="classifier">Float, USD/meter</span></dt><dd><p>cost per unit length</p>
+<p><em>Minimum</em> = 0.0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">breaking_load</span></code><span class="classifier">Float, Newton</span></dt><dd><p>line break tension</p>
+<p><em>Minimum</em> = 0.0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">damping</span></code><span class="classifier">Float, Newton * second</span></dt><dd><p>internal damping (BA)</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">transverse_added_mass</span></code><span class="classifier">Float</span></dt><dd><p>transverse added mass coefficient (with respect to line
+displacement)</p>
+<p><em>Minimum</em> = 0.0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">tangential_added_mass</span></code><span class="classifier">Float</span></dt><dd><p>tangential added mass coefficient (with respect to line
+displacement)</p>
+<p><em>Minimum</em> = 0.0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">transverse_drag</span></code><span class="classifier">Float</span></dt><dd><p>transverse drag coefficient (with respect to frontal area, d*l)</p>
+<p><em>Minimum</em> = 0.0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">tangential_drag</span></code><span class="classifier">Float</span></dt><dd><p>tangential drag coefficient (with respect to surface area, π*d*l)</p>
+<p><em>Minimum</em> = 0.0</p>
+</dd>
+</dl>
+</section>
+<section id="anchor-types">
+<h2>anchor_types<a class="headerlink" href="#anchor-types" title="Link to this heading">#</a></h2>
+<dl>
+<dt><code class="code docutils literal notranslate"><span class="pre">name</span></code><span class="classifier">String</span></dt><dd><p>Name of anchor to be referenced by anchor_id in Nodes section</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">mass</span></code><span class="classifier">Float, kilogram</span></dt><dd><p>mass of the anchor</p>
+<p><em>Minimum</em> = 0.0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">cost</span></code><span class="classifier">Float, USD</span></dt><dd><p>cost of the anchor</p>
+<p><em>Minimum</em> = 0.0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">max_lateral_load</span></code><span class="classifier">Float, Newton</span></dt><dd><p>Maximum lateral load (parallel to the sea floor) that the anchor
+can support</p>
+<p><em>Minimum</em> = 0.0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">max_vertical_load</span></code><span class="classifier">Float, Newton</span></dt><dd><p>Maximum vertical load (perpendicular to the sea floor) that the
+anchor can support</p>
+<p><em>Minimum</em> = 0.0</p>
+</dd>
+</dl>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="floating.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Floating Platform</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="airfoils.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Airfoils</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nodes">nodes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lines">lines</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#line-types">line_types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anchor-types">anchor_types</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/source/mooring.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2020, IEA Wind Task 37.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

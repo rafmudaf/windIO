@@ -1,39 +1,326 @@
+
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+
+<html lang="en" data-content_root="../" >
+
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Contributing Guide &#8212; windIO windIO documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=5ecbeea2" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=686e5160" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=27fed22d" />
-    <script src="../_static/documentation_options.js?v=3d9de789"></script>
+    <title>Contributing Guide &#8212; windIO v1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=e160b93e"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'source/developer_guide';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Plant Schema" href="plant_schema_doc.html" />
-   
-  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="prev" title="Wind Farm" href="wind_farm.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
   
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
   
   
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-  </head><body>
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
   
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">windIO v1.0 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="turbine.html">
+    Turbine
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="plant.html">
+    Plant
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Contributing Guide
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
           
 
-          <div class="body" role="main">
-            
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="turbine.html">
+    Turbine
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="plant.html">
+    Plant
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Contributing Guide
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"></div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Contributing Guide</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
   <section id="contributing-guide">
-<h1>Contributing Guide<a class="headerlink" href="#contributing-guide" title="Link to this heading">¶</a></h1>
+<h1>Contributing Guide<a class="headerlink" href="#contributing-guide" title="Link to this heading">#</a></h1>
 <p>windIO was started under IEA Wind Task 37 and has been additionally supported by IEA Wind Task 55
 as well as other community-based groups, research organization, and private companies.
 Being a collaborative effort, it is important to establish a common understanding of the
@@ -46,7 +333,7 @@ and various other files that serve as infrastructure.
 Changes to anything that is tracked with git in the windIO repository is considered a contribution,
 and these guidelines apply.</p>
 <section id="code-of-conduct">
-<h2>Code of Conduct<a class="headerlink" href="#code-of-conduct" title="Link to this heading">¶</a></h2>
+<h2>Code of Conduct<a class="headerlink" href="#code-of-conduct" title="Link to this heading">#</a></h2>
 <p>As members of the wind energy community, we all agree that the advancement of wind
 energy technologies is critical for the sustainability of our planet.
 This shared goal should be reflected in our interactions with each other.
@@ -58,7 +345,7 @@ Remember that we’re all on the same team despite differences in our day to day
 </ul>
 </section>
 <section id="contribution-management">
-<h2>Contribution management<a class="headerlink" href="#contribution-management" title="Link to this heading">¶</a></h2>
+<h2>Contribution management<a class="headerlink" href="#contribution-management" title="Link to this heading">#</a></h2>
 <p>Contributions are tracked with <a class="reference external" href="https://docs.github.com/en/get-started/start-your-journey/about-github-and-git#about-git">git</a>
 and coordinated with <a class="reference external" href="https://docs.github.com/en/get-started/start-your-journey/about-github-and-git#about-github">GitHub</a>.</p>
 <p>In general, a version of the <a class="reference external" href="https://nvie.com/posts/a-successful-git-branching-model/">git-flow</a>
@@ -76,7 +363,7 @@ are allowed since the previous release.</p></li>
 Tags typically have a version number such as <code class="docutils literal notranslate"><span class="pre">v1.2.3</span></code>.</p></li>
 </ul>
 <section id="pull-requests">
-<h3>Pull requests<a class="headerlink" href="#pull-requests" title="Link to this heading">¶</a></h3>
+<h3>Pull requests<a class="headerlink" href="#pull-requests" title="Link to this heading">#</a></h3>
 <p>Once a set of changes is ready for review, the author should submit a pull request.
 This signals to the windIO community that a change is coming, and it triggers the review
 process to begin.
@@ -92,7 +379,7 @@ for accepting the change.</p></li>
 </ul>
 </section>
 <section id="reviews">
-<h3>Reviews<a class="headerlink" href="#reviews" title="Link to this heading">¶</a></h3>
+<h3>Reviews<a class="headerlink" href="#reviews" title="Link to this heading">#</a></h3>
 <p>The review process is as critical to the success of windIO as the code contributions themselves.
 The objective of code reviews is to ensure that windIO stays within its intended scope
 and satisfies its requirements in a stable and sustainable manner.</p>
@@ -108,7 +395,7 @@ change in two months or two years?</p></li>
 </section>
 </section>
 <section id="roles-responsibilities-and-expectations">
-<h2>Roles, Responsibilities and Expectations<a class="headerlink" href="#roles-responsibilities-and-expectations" title="Link to this heading">¶</a></h2>
+<h2>Roles, Responsibilities and Expectations<a class="headerlink" href="#roles-responsibilities-and-expectations" title="Link to this heading">#</a></h2>
 <p>The collaborative development process involves various people with distinct roles, and
 a single person may participate as multiple roles.
 In the context of windIO, the following are identified:</p>
@@ -125,7 +412,7 @@ control, and maintainers should serve as a facilitators and enablers.
 There is an implicit tension between these roles, and an effective development process
 requires maintaining a balance.</p>
 <section id="contributor-responsibilities">
-<h3>Contributor Responsibilities<a class="headerlink" href="#contributor-responsibilities" title="Link to this heading">¶</a></h3>
+<h3>Contributor Responsibilities<a class="headerlink" href="#contributor-responsibilities" title="Link to this heading">#</a></h3>
 <p>Contributors are responsible for communicating their intention to make a change through
 a GitHub Issue or Discussion, and relevant people should be tagged directly for feedback.
 After accepting feedback and updating the proposal, the contributor is responsible for
@@ -140,7 +427,7 @@ should push the process by providing information and requesting additional revie
 <p><strong>Summary: Contributors should strive to make high quality changes and create pull requests that encourage an approval from reviewers.</strong></p>
 </section>
 <section id="reviewer-responsibilities">
-<h3>Reviewer Responsibilities<a class="headerlink" href="#reviewer-responsibilities" title="Link to this heading">¶</a></h3>
+<h3>Reviewer Responsibilities<a class="headerlink" href="#reviewer-responsibilities" title="Link to this heading">#</a></h3>
 <p>Reviewers are responsible for providing feedback on the pull request from the perspective
 of the domain included in the change.
 For example, changes to a given area of the ontology should be reviewed by a domain expert
@@ -152,7 +439,7 @@ maintainers to establish a reasonable review timeline.</p>
 <p><strong>Summary: Reviewers should strive to provide meaningful and constructive feedback that helps the contributor make quality changes and supports the objectives of the windIO project.</strong></p>
 </section>
 <section id="maintainer-responsibilities">
-<h3>Maintainer Responsibilities<a class="headerlink" href="#maintainer-responsibilities" title="Link to this heading">¶</a></h3>
+<h3>Maintainer Responsibilities<a class="headerlink" href="#maintainer-responsibilities" title="Link to this heading">#</a></h3>
 <p>Maintainers are responsible for ensuring that the windIO repository and processes around
 and within it continue to serve the windIO community well.
 While the contributor and reviewer roles are activated by a specific pull request,
@@ -181,7 +468,7 @@ They are responsible for ultimately merging a pull request.</p>
 <p><strong>Summary: Maintainers should steer the collaborative development process and provide reviews that support the objectives of the windIO project.</strong></p>
 </section>
 <section id="sequence">
-<h3>Sequence<a class="headerlink" href="#sequence" title="Link to this heading">¶</a></h3>
+<h3>Sequence<a class="headerlink" href="#sequence" title="Link to this heading">#</a></h3>
 <p>Here’s a typical sequence of events for a contribution:</p>
 <ol class="arabic simple" start="0">
 <li><p><strong>Identify a need</strong>: <em>Contributors</em> identify and characterize a need for a change in windIO.
@@ -204,87 +491,123 @@ the main branch. The change is now part of windIO.</p></li>
 </section>
 
 
-          </div>
-          
-        </div>
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="wind_farm.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Wind Farm</p>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="Main">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../index.html">windIO</a></h1>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-of-conduct">Code of Conduct</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contribution-management">Contribution management</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pull-requests">Pull requests</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reviews">Reviews</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#roles-responsibilities-and-expectations">Roles, Responsibilities and Expectations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contributor-responsibilities">Contributor Responsibilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reviewer-responsibilities">Reviewer Responsibilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#maintainer-responsibilities">Maintainer Responsibilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sequence">Sequence</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
 
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/source/developer_guide.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
 
-
-
-
-
-
-<search id="searchbox" style="display: none" role="search">
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
-      <input type="submit" value="Go" />
-    </form>
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
     </div>
-</search>
-<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="turbine_schema_doc.html">Turbine Schema</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plant_schema_doc.html">Plant Schema</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Contributing Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#code-of-conduct">Code of Conduct</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#contribution-management">Contribution management</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#pull-requests">Pull requests</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#reviews">Reviews</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#roles-responsibilities-and-expectations">Roles, Responsibilities and Expectations</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#contributor-responsibilities">Contributor Responsibilities</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#reviewer-responsibilities">Reviewer Responsibilities</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#maintainer-responsibilities">Maintainer Responsibilities</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#sequence">Sequence</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="../index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="plant_schema_doc.html" title="previous chapter">Plant Schema</a></li>
-  </ul></li>
-</ul>
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2020, IEA Wind Task 37.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
 </div>
 
-
-
-
-
-
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &#169;2020, IEA Wind Task 37.
-      
-      |
-      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.1.3</a>
-      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
-      
-      |
-      <a href="../_sources/source/developer_guide.rst.txt"
-          rel="nofollow">Page source</a>
-    </div>
-
-    
-
-    
+  </footer>
   </body>
 </html>

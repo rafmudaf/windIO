@@ -1,0 +1,802 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Control &#8212; windIO v1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=e160b93e"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'source/control';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Environment" href="environment.html" />
+    <link rel="prev" title="Materials" href="materials.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">windIO v1.0 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="turbine.html">
+    Turbine
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="plant.html">
+    Plant
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="developer_guide.html">
+    Contributing Guide
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="turbine.html">
+    Turbine
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="plant.html">
+    Plant
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="developer_guide.html">
+    Contributing Guide
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="assembly.html">Assembly</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="components.html">Components</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="blade.html">Blade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hub.html">Hub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nacelle.html">Nacelle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tower.html">Tower</a></li>
+<li class="toctree-l2"><a class="reference internal" href="monopile.html">Monopile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="floating.html">Floating Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mooring.html">Mooring</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="airfoils.html">Airfoils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="materials.html">Materials</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment.html">Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="costs.html">Costs</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="turbine.html" class="nav-link">Turbine</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Control</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="control">
+<h1>Control<a class="headerlink" href="#control" title="Link to this heading">#</a></h1>
+<section id="actuators">
+<h2>Actuators<a class="headerlink" href="#actuators" title="Link to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">supervisory</span><span class="p">:</span>
+        <span class="n">Vin</span><span class="p">:</span> <span class="mf">3.0</span>
+        <span class="n">Vout</span><span class="p">:</span> <span class="mf">25.0</span>
+        <span class="n">maxTS</span><span class="p">:</span> <span class="mf">95.</span>
+    <span class="n">pitch</span><span class="p">:</span>
+        <span class="n">PC_zeta</span><span class="p">:</span> <span class="mf">1.0</span>                      <span class="c1"># Pitch controller desired damping ratio [-]</span>
+        <span class="n">PC_omega</span><span class="p">:</span> <span class="mf">0.2</span>                     <span class="c1"># Pitch controller desired natural frequency [rad/s]</span>
+        <span class="n">ps_percent</span><span class="p">:</span> <span class="mf">0.8</span>                   <span class="c1"># Percent peak shaving  [%, &lt;= 1 ], {default = 80%}</span>
+        <span class="n">max_pitch</span><span class="p">:</span> <span class="mf">1.57</span>                     <span class="c1"># Maximum pitch angle [rad], {default = 90 degrees}</span>
+        <span class="n">max_pitch_rate</span><span class="p">:</span> <span class="mf">0.03490658503988659</span> <span class="c1"># 2 deg/s</span>
+        <span class="n">min_pitch</span><span class="p">:</span> <span class="mf">0.</span>                     <span class="c1"># Minimum pitch angle [rad], {default = 0 degrees}</span>
+    <span class="n">torque</span><span class="p">:</span>
+        <span class="n">control_type</span><span class="p">:</span> <span class="n">tsr_tracking</span>
+        <span class="n">tsr</span><span class="p">:</span> <span class="mf">9.0</span>
+        <span class="n">max_torque_rate</span><span class="p">:</span> <span class="mf">1500000.</span>
+        <span class="n">VS_minspd</span><span class="p">:</span> <span class="mf">0.5235987755982988</span>     <span class="c1"># Minimum rotor speed [rad/s], {default = 0 rad/s}</span>
+        <span class="n">VS_maxspd</span><span class="p">:</span> <span class="mf">0.7916813487046278</span>     <span class="c1"># Minimum rotor speed [rad/s], {default = 0 rad/s}</span>
+        <span class="n">VS_zeta</span><span class="p">:</span> <span class="mf">1.0</span>                      <span class="c1"># Torque controller desired damping ratio [-]</span>
+        <span class="n">VS_omega</span><span class="p">:</span> <span class="mf">0.2</span>                     <span class="c1"># Torque controller desired natural frequency [rad/s]</span>
+    <span class="n">setpoint_smooth</span><span class="p">:</span>
+        <span class="n">ss_vsgain</span><span class="p">:</span> <span class="mi">1</span>                      <span class="c1"># Torque controller setpoint smoother gain bias percentage [%, &lt;= 1 ], {default = 100%}</span>
+        <span class="n">ss_pcgain</span><span class="p">:</span> <span class="mf">.001</span>                   <span class="c1"># Pitch controller setpoint smoother gain bias percentage  [%, &lt;= 1 ], {default = 0.1%}</span>
+    <span class="n">shutdown</span><span class="p">:</span>
+        <span class="n">limit_type</span><span class="p">:</span> <span class="n">gen_speed</span>
+        <span class="n">limit_value</span><span class="p">:</span> <span class="mf">2.0</span>
+</pre></div>
+</div>
+<section id="pitch">
+<h3>pitch<a class="headerlink" href="#pitch" title="Link to this heading">#</a></h3>
+</section>
+<section id="supervisory">
+<h3>supervisory<a class="headerlink" href="#supervisory" title="Link to this heading">#</a></h3>
+<dl>
+<dt><code class="code docutils literal notranslate"><span class="pre">Vin</span></code><span class="classifier">Float, m/s</span></dt><dd><p>Cut-in wind speed of the wind turbine.</p>
+<p><em>Minimum</em> = 0    <em>Maximum</em> = 10</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">Vout</span></code><span class="classifier">Float, m/s</span></dt><dd><p>Cut-out wind speed of the wind turbine.</p>
+<p><em>Minimum</em> = 0    <em>Maximum</em> = 50</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">maxTS</span></code><span class="classifier">Float, m/s</span></dt><dd><p>Maximum allowable blade tip speed.</p>
+<p><em>Minimum</em> = 60    <em>Maximum</em> = 120</p>
+</dd>
+</dl>
+</section>
+<section id="id1">
+<h3>pitch<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<dl>
+<dt><code class="code docutils literal notranslate"><span class="pre">PC_omega</span></code><span class="classifier">Float, rad/s</span></dt><dd><p>Pitch controller desired natural frequency. It is used by the
+ROSCO controller (<a class="github reference external" href="https://github.com/NREL/ROSCO">NREL/ROSCO</a>)</p>
+<p><em>Minimum</em> = 0    <em>Maximum</em> = 5</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">PC_zeta</span></code><span class="classifier">Float</span></dt><dd><p>Pitch controller desired damping ratio. It is used by the ROSCO
+controller (<a class="github reference external" href="https://github.com/NREL/ROSCO">NREL/ROSCO</a>)</p>
+<p><em>Minimum</em> = 0    <em>Maximum</em> = 5</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">ps_percent</span></code><span class="classifier">Float</span></dt><dd><p>Percent peak shaving. It is used by the ROSCO controller
+(<a class="github reference external" href="https://github.com/NREL/ROSCO">NREL/ROSCO</a>)</p>
+<p><em>Minimum</em> = 0    <em>Maximum</em> = 1</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">fine_pitch</span></code><span class="classifier">Float, rad</span></dt><dd><p>Optimal pitch angle of the wind turbine. As default, it is
+maintained constant in region II.</p>
+<p><em>Minimum</em> = -10    <em>Maximum</em> = 10</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">max_pitch_rate</span></code><span class="classifier">Float, rad/s</span></dt><dd><p>Maximum pitch rate of the rotor blades.</p>
+<p><em>Minimum</em> = 0    <em>Maximum</em> = 0.2</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">max_pitch</span></code><span class="classifier">Float, rad</span></dt><dd><p>Maximum pitch angle, where the default is 90 degrees. It is used
+by the ROSCO controller (<a class="github reference external" href="https://github.com/NREL/ROSCO">NREL/ROSCO</a>)</p>
+<p><em>Minimum</em> = 0    <em>Maximum</em> = 2.0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">min_pitch</span></code><span class="classifier">Float, rad</span></dt><dd><p>Minimum pitch angle, where the default is 0 degrees. It is used by
+the ROSCO controller (<a class="github reference external" href="https://github.com/NREL/ROSCO">NREL/ROSCO</a>)</p>
+<p><em>Minimum</em> = -0.5    <em>Maximum</em> = 1.0</p>
+</dd>
+</dl>
+</section>
+<section id="torque">
+<h3>torque<a class="headerlink" href="#torque" title="Link to this heading">#</a></h3>
+<dl>
+<dt><code class="code docutils literal notranslate"><span class="pre">max_torque_rate</span></code><span class="classifier">Float, Nm/s</span></dt><dd><p>Maximum torque rate of the wind turbine generator.</p>
+<p><em>Minimum</em> = 1000    <em>Maximum</em> = 100000000</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">control_type</span></code><span class="classifier">String from, [‘tsr_tracking’, ‘legacy’, ‘pi_transitions’]</span></dt><dd><p>Type of torque control used.</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">tsr</span></code><span class="classifier">Float</span></dt><dd><p>Rated tip speed ratio of the wind turbine. As default, it is
+maintained constant in region II.</p>
+<p><em>Minimum</em> = 0    <em>Maximum</em> = 15</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">VS_zeta</span></code><span class="classifier">Float</span></dt><dd><p>Torque controller desired damping ratio. It is used by the ROSCO
+controller (<a class="github reference external" href="https://github.com/NREL/ROSCO">NREL/ROSCO</a>)</p>
+<p><em>Minimum</em> = 0    <em>Maximum</em> = 5</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">VS_omega</span></code><span class="classifier">Float, rad/s</span></dt><dd><p>Torque controller desired natural frequency. It is used by the
+ROSCO controller (<a class="github reference external" href="https://github.com/NREL/ROSCO">NREL/ROSCO</a>)</p>
+<p><em>Minimum</em> = 0    <em>Maximum</em> = 5</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">VS_minspd</span></code><span class="classifier">Float, rad/s</span></dt><dd><p>Minimum rotor speed. It is used by the ROSCO controller
+(<a class="github reference external" href="https://github.com/NREL/ROSCO">NREL/ROSCO</a>)</p>
+<p><em>Minimum</em> = 0    <em>Maximum</em> = 5</p>
+</dd>
+</dl>
+</section>
+<section id="setpoint-smooth">
+<h3>setpoint_smooth<a class="headerlink" href="#setpoint-smooth" title="Link to this heading">#</a></h3>
+<dl>
+<dt><code class="code docutils literal notranslate"><span class="pre">ss_vsgain</span></code><span class="classifier">Float</span></dt><dd><p>Torque controller setpoint smoother gain bias percentage. It is
+used by the ROSCO controller (<a class="github reference external" href="https://github.com/NREL/ROSCO">NREL/ROSCO</a>)</p>
+<p><em>Minimum</em> = 0    <em>Maximum</em> = 1</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">ss_pcgain</span></code><span class="classifier">Float</span></dt><dd><p>Pitch controller setpoint smoother gain bias percentage. It is
+used by the ROSCO controller (<a class="github reference external" href="https://github.com/NREL/ROSCO">NREL/ROSCO</a>)</p>
+<p><em>Minimum</em> = 0    <em>Maximum</em> = 1</p>
+</dd>
+</dl>
+</section>
+<section id="shutdown">
+<h3>shutdown<a class="headerlink" href="#shutdown" title="Link to this heading">#</a></h3>
+<p>Turbine shutdown control, when a certain limit is reached</p>
+<dl>
+<dt><code class="code docutils literal notranslate"><span class="pre">limit_type</span></code><span class="classifier">String from, [‘time’, ‘pitch’, ‘yaw’, ‘gen_speed’, ‘wind_speed’, ‘plt_pitch’, ‘nac_IMU’]</span></dt><dd><p>What value is used to trigger shutdown procedure</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">limit_value</span></code><span class="classifier">Float</span></dt><dd><p>When limit_type &gt; limit_value, shutdown is initiated</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">pitch_rate</span></code><span class="classifier">Float, rad/s</span></dt><dd><p>Rate of pitch manuever to max_pitch. Default is 2 deg./s ?</p>
+<p><em>Minimum</em> = 0    <em>Maximum</em> = 0.2</p>
+</dd>
+</dl>
+<section id="open-loop-pitch">
+<h4>open_loop_pitch<a class="headerlink" href="#open-loop-pitch" title="Link to this heading">#</a></h4>
+</section>
+</section>
+<section id="wind-speed-estimator">
+<h3>wind_speed_estimator<a class="headerlink" href="#wind-speed-estimator" title="Link to this heading">#</a></h3>
+<p>Extended Kalman filter implementation of wind speed estimator</p>
+<dl>
+<dt><code class="code docutils literal notranslate"><span class="pre">gen_process_noise</span></code><span class="classifier">Float</span></dt><dd><p>Process noise for EKF generator speed state, Default = 1e-5</p>
+<p><em>Minimum</em> = 0    <em>Maximum</em> = 0.001</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">turb_intensity</span></code><span class="classifier">Float</span></dt><dd><p>Turbulence intensity defined in usual way, parameterizes EKF
+process noise for wind, Default = 0.14</p>
+<p><em>Minimum</em> = 0    <em>Maximum</em> = 0.5</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">turb_length_scale</span></code><span class="classifier">Float</span></dt><dd><p>Turbulence length scale, parameterizes EKF process noise for wind,
+Defulat = 3 * TurbineDiameter</p>
+<p><em>Minimum</em> = 0    <em>Maximum</em> = 1000</p>
+</dd>
+</dl>
+</section>
+<section id="yaw">
+<h3>yaw<a class="headerlink" href="#yaw" title="Link to this heading">#</a></h3>
+<p>Yaw control for changing wind direction or steady offset as implemented by ROSCO</p>
+<dl>
+<dt><code class="code docutils literal notranslate"><span class="pre">yaw_error_thresh</span></code><span class="classifier">Float, rad^2 s</span></dt><dd><p>Yaw error threshold, Turbine begins to yaw when it passes this</p>
+<p><em>Minimum</em> = 0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">yaw_filt_fast</span></code><span class="classifier">Float, rad/s</span></dt><dd><p>Corner frequency for fast low pass filter, Default = 1.0 Hz</p>
+<p><em>Minimum</em> = 1e-06</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">yaw_filt_slow</span></code><span class="classifier">Float, rad/s</span></dt><dd><p>Corner frequency for slow low pass filter, Default = 1/60 Hz</p>
+<p><em>Minimum</em> = 1e-09</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">yaw_rate</span></code><span class="classifier">Float, rad/s</span></dt><dd><p>Yaw rate when changing yaw</p>
+<p><em>Minimum</em> = 0</p>
+</dd>
+</dl>
+</section>
+<section id="power-control">
+<h3>power_control<a class="headerlink" href="#power-control" title="Link to this heading">#</a></h3>
+<dl class="simple">
+<dt><code class="code docutils literal notranslate"><span class="pre">method</span></code><span class="classifier">String from, [‘gen_speed’]</span></dt><dd><p>Method used to control power output, generator speed only for now.</p>
+</dd>
+</dl>
+<section id="reference-control">
+<h4>reference_control<a class="headerlink" href="#reference-control" title="Link to this heading">#</a></h4>
+<p>Control power reference R</p>
+<dl>
+<dt><code class="code docutils literal notranslate"><span class="pre">method</span></code><span class="classifier">String from, [‘constrained_ref_control’, ‘open_loop_opt’]</span></dt><dd><p>Method of controlling power reference R</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">const_gen_lim</span></code><span class="classifier">Float, rad/s</span></dt><dd><p>Generator speed limit to start de-rating</p>
+<p><em>Minimum</em> = 0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">const_gen_gain</span></code><span class="classifier">Float, (rad/s)^-1</span></dt><dd><p>Gain for de-rating when gen speed &gt; lim</p>
+<p><em>Minimum</em> = 0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">const_gen_est</span></code><span class="classifier">Float, (rad/m)</span></dt><dd><p>Generator speed transient estimation gain</p>
+<p><em>Minimum</em> = 0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">const_plt_lim</span></code><span class="classifier">Float, rad</span></dt><dd><p>Platform pitch limit to start de-rating</p>
+<p><em>Minimum</em> = 0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">const_plt_gain</span></code><span class="classifier">Float, (rad)^-1</span></dt><dd><p>Gain for de-rating when plt pitch &gt; lim</p>
+<p><em>Minimum</em> = 0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">const_plt_est</span></code><span class="classifier">Float, (rad)/(m/s)</span></dt><dd><p>Platform pitch transient estimation gain</p>
+<p><em>Minimum</em> = 0</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="freq-avoidance">
+<h3>freq_avoidance<a class="headerlink" href="#freq-avoidance" title="Link to this heading">#</a></h3>
+<p>Changes generator speed setpoint to avoid turbine natural frequencies</p>
+<dl class="simple">
+<dt><code class="code docutils literal notranslate"><span class="pre">list_of_freqs</span></code><span class="classifier">Array of Floats, rad/s</span></dt><dd><p>List of frequencies to avoid</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">avoidance_param</span></code><span class="classifier">Array of Floats, rad/s</span></dt><dd><p>Buffer speed around frequencies to avoid</p>
+</dd>
+</dl>
+</section>
+<section id="soft-cut-out">
+<h3>soft_cut_out<a class="headerlink" href="#soft-cut-out" title="Link to this heading">#</a></h3>
+<p>Upper limit of power reference at high wind speeds (lookup table)</p>
+<dl class="simple">
+<dt><code class="code docutils literal notranslate"><span class="pre">wind_speeds</span></code><span class="classifier">Array of Floats, m/s</span></dt><dd><p>List of wind speeds</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">power_reference</span></code><span class="classifier">Array of Floats, (-)</span></dt><dd><p>List of power reference at wind_speeds, number of elements should
+be same</p>
+</dd>
+</dl>
+</section>
+<section id="user-defined-ss-1">
+<h3>user_defined_SS_1<a class="headerlink" href="#user-defined-ss-1" title="Link to this heading">#</a></h3>
+<p>User defined state-space linear controllers within ROSCO, only 1 for now</p>
+</section>
+<section id="user-defined-ss-2">
+<h3>user_defined_SS_2<a class="headerlink" href="#user-defined-ss-2" title="Link to this heading">#</a></h3>
+<p>User defined state-space linear controllers within ROSCO, only 1 for now</p>
+</section>
+<section id="user-defined-ss-3">
+<h3>user_defined_SS_3<a class="headerlink" href="#user-defined-ss-3" title="Link to this heading">#</a></h3>
+<p>User defined state-space linear controllers within ROSCO, only 1 for now</p>
+</section>
+<section id="user-defined-ss-4">
+<h3>user_defined_SS_4<a class="headerlink" href="#user-defined-ss-4" title="Link to this heading">#</a></h3>
+<p>User defined state-space linear controllers within ROSCO, only 1 for now</p>
+</section>
+<section id="user-defined-ss-5">
+<h3>user_defined_SS_5<a class="headerlink" href="#user-defined-ss-5" title="Link to this heading">#</a></h3>
+<p>User defined state-space linear controllers within ROSCO, only 1 for now</p>
+</section>
+<section id="user-defined-tf-1">
+<h3>user_defined_TF_1<a class="headerlink" href="#user-defined-tf-1" title="Link to this heading">#</a></h3>
+<p>User defined transfer function linear controllers within ROSCO, only 1 for now</p>
+</section>
+<section id="user-defined-tf-2">
+<h3>user_defined_TF_2<a class="headerlink" href="#user-defined-tf-2" title="Link to this heading">#</a></h3>
+<p>User defined transfer function linear controllers within ROSCO, only 1 for now</p>
+</section>
+<section id="user-defined-tf-3">
+<h3>user_defined_TF_3<a class="headerlink" href="#user-defined-tf-3" title="Link to this heading">#</a></h3>
+<p>User defined transfer function linear controllers within ROSCO, only 1 for now</p>
+</section>
+<section id="user-defined-tf-4">
+<h3>user_defined_TF_4<a class="headerlink" href="#user-defined-tf-4" title="Link to this heading">#</a></h3>
+<p>User defined transfer function linear controllers within ROSCO, only 1 for now</p>
+</section>
+<section id="user-defined-tf-5">
+<h3>user_defined_TF_5<a class="headerlink" href="#user-defined-tf-5" title="Link to this heading">#</a></h3>
+<p>User defined transfer function linear controllers within ROSCO, only 1 for now</p>
+</section>
+<section id="user-defined-ol-1">
+<h3>user_defined_OL_1<a class="headerlink" href="#user-defined-ol-1" title="Link to this heading">#</a></h3>
+</section>
+<section id="user-defined-ol-2">
+<h3>user_defined_OL_2<a class="headerlink" href="#user-defined-ol-2" title="Link to this heading">#</a></h3>
+</section>
+<section id="user-defined-ol-3">
+<h3>user_defined_OL_3<a class="headerlink" href="#user-defined-ol-3" title="Link to this heading">#</a></h3>
+</section>
+<section id="user-defined-ol-4">
+<h3>user_defined_OL_4<a class="headerlink" href="#user-defined-ol-4" title="Link to this heading">#</a></h3>
+</section>
+<section id="user-defined-ol-5">
+<h3>user_defined_OL_5<a class="headerlink" href="#user-defined-ol-5" title="Link to this heading">#</a></h3>
+</section>
+<section id="user-dylib">
+<h3>user_dylib<a class="headerlink" href="#user-dylib" title="Link to this heading">#</a></h3>
+<p>User defined dynamic library.</p>
+<dl class="simple">
+<dt><code class="code docutils literal notranslate"><span class="pre">dylib</span></code><span class="classifier">String</span></dt><dd><p>Dynamic library file path &amp; name</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">dylib_input</span></code><span class="classifier">String</span></dt><dd><p>Dynamic library file input</p>
+</dd>
+</dl>
+</section>
+<section id="user-simulink">
+<h3>user_simulink<a class="headerlink" href="#user-simulink" title="Link to this heading">#</a></h3>
+<p>User defined simulink model</p>
+<dl class="simple">
+<dt><code class="code docutils literal notranslate"><span class="pre">simulink_model</span></code><span class="classifier">String</span></dt><dd><p>Path to simulink model</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">matlab_path</span></code><span class="classifier">String</span></dt><dd><p>Path to matlab executable</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">sim_param_file</span></code><span class="classifier">String</span></dt><dd><p>Path to matlab script with simulation parameters</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="materials.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Materials</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="environment.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Environment</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#actuators">Actuators</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitch">pitch</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#supervisory">supervisory</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">pitch</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#torque">torque</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setpoint-smooth">setpoint_smooth</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shutdown">shutdown</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#open-loop-pitch">open_loop_pitch</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wind-speed-estimator">wind_speed_estimator</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yaw">yaw</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#power-control">power_control</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-control">reference_control</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#freq-avoidance">freq_avoidance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#soft-cut-out">soft_cut_out</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#user-defined-ss-1">user_defined_SS_1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#user-defined-ss-2">user_defined_SS_2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#user-defined-ss-3">user_defined_SS_3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#user-defined-ss-4">user_defined_SS_4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#user-defined-ss-5">user_defined_SS_5</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#user-defined-tf-1">user_defined_TF_1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#user-defined-tf-2">user_defined_TF_2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#user-defined-tf-3">user_defined_TF_3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#user-defined-tf-4">user_defined_TF_4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#user-defined-tf-5">user_defined_TF_5</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#user-defined-ol-1">user_defined_OL_1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#user-defined-ol-2">user_defined_OL_2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#user-defined-ol-3">user_defined_OL_3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#user-defined-ol-4">user_defined_OL_4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#user-defined-ol-5">user_defined_OL_5</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#user-dylib">user_dylib</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#user-simulink">user_simulink</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/source/control.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2020, IEA Wind Task 37.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

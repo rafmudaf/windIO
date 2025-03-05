@@ -1,0 +1,909 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Floating Platform &#8212; windIO v1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=e160b93e"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'source/floating';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Mooring" href="mooring.html" />
+    <link rel="prev" title="Monopile" href="monopile.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">windIO v1.0 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="turbine.html">
+    Turbine
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="plant.html">
+    Plant
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="developer_guide.html">
+    Contributing Guide
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="turbine.html">
+    Turbine
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="plant.html">
+    Plant
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="developer_guide.html">
+    Contributing Guide
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="assembly.html">Assembly</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="components.html">Components</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="blade.html">Blade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hub.html">Hub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nacelle.html">Nacelle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tower.html">Tower</a></li>
+<li class="toctree-l2"><a class="reference internal" href="monopile.html">Monopile</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Floating Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mooring.html">Mooring</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="airfoils.html">Airfoils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="materials.html">Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="control.html">Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment.html">Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="costs.html">Costs</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="turbine.html" class="nav-link">Turbine</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="components.html" class="nav-link">Components</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Floating Platform</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="floating-platform">
+<h1>Floating Platform<a class="headerlink" href="#floating-platform" title="Link to this heading">#</a></h1>
+<p>The floating platform ontology uses a <em>graph</em>-like representation of the geometry with Joints and Members.  Additional rigid body point masses can be defined at the joints as well.</p>
+<section id="joints">
+<h2>Joints<a class="headerlink" href="#joints" title="Link to this heading">#</a></h2>
+<p>Joints are the <em>nodes</em> of the graph representation of the floating platform.  They must be assigned a unique name for later reference by the Members.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>        <span class="n">transition_piece_mass</span><span class="p">:</span> <span class="mf">100000.0</span>
+        <span class="n">transition_piece_cost</span><span class="p">:</span> <span class="mf">100000.0</span>
+        <span class="n">joints</span><span class="p">:</span>
+            <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">main_keel</span>
+              <span class="n">location</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">20.0</span><span class="p">]</span>
+
+            <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">main_freeboard</span>
+              <span class="n">location</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">15.0</span><span class="p">]</span>
+              <span class="n">transition</span><span class="p">:</span> <span class="kc">True</span>
+
+            <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">col1_keel</span>
+              <span class="n">location</span><span class="p">:</span> <span class="p">[</span><span class="mf">51.75</span><span class="p">,</span> <span class="mf">3.14159265</span><span class="p">,</span> <span class="o">-</span><span class="mf">20.0</span><span class="p">]</span> <span class="c1">#3.14159265 = 180deg</span>
+              <span class="n">cylindrical</span><span class="p">:</span> <span class="kc">True</span>
+
+            <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">col1_freeboard</span>
+              <span class="n">location</span><span class="p">:</span> <span class="p">[</span><span class="mf">51.75</span><span class="p">,</span> <span class="mf">3.14159265</span><span class="p">,</span> <span class="mf">15.0</span><span class="p">]</span> <span class="c1"># 3.14159265 = 180deg</span>
+              <span class="n">cylindrical</span><span class="p">:</span> <span class="kc">True</span>
+
+            <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">col2_keel</span>
+              <span class="n">location</span><span class="p">:</span> <span class="p">[</span><span class="mf">51.75</span><span class="p">,</span> <span class="mf">1.0471976</span><span class="p">,</span> <span class="o">-</span><span class="mf">20.0</span><span class="p">]</span> <span class="c1">#1.0471975 = 60 deg</span>
+              <span class="n">cylindrical</span><span class="p">:</span> <span class="kc">True</span>
+
+            <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">col2_freeboard</span>
+              <span class="n">location</span><span class="p">:</span> <span class="p">[</span><span class="mf">51.75</span><span class="p">,</span> <span class="mf">1.0471975</span><span class="p">,</span> <span class="mf">15.0</span><span class="p">]</span>
+              <span class="n">cylindrical</span><span class="p">:</span> <span class="kc">True</span>
+
+            <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">col3_keel</span>
+              <span class="n">location</span><span class="p">:</span> <span class="p">[</span><span class="mf">51.75</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0471976</span><span class="p">,</span> <span class="o">-</span><span class="mf">20.0</span><span class="p">]</span> <span class="c1">#-1.0471975 = -60 deg</span>
+              <span class="n">cylindrical</span><span class="p">:</span> <span class="kc">True</span>
+
+            <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">col3_freeboard</span>
+              <span class="n">location</span><span class="p">:</span> <span class="p">[</span><span class="mf">51.75</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0471976</span><span class="p">,</span> <span class="mf">15.0</span><span class="p">]</span> <span class="c1">#-1.0471975 = -60 deg</span>
+              <span class="n">cylindrical</span><span class="p">:</span> <span class="kc">True</span>
+
+            <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">anchor1</span>
+              <span class="n">location</span><span class="p">:</span> <span class="p">[</span><span class="mf">837.8</span><span class="p">,</span> <span class="mf">3.14159265</span><span class="p">,</span> <span class="o">-</span><span class="mf">200.0</span><span class="p">]</span>
+              <span class="n">cylindrical</span><span class="p">:</span> <span class="kc">True</span>
+
+            <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">anchor2</span>
+              <span class="n">location</span><span class="p">:</span> <span class="p">[</span><span class="mf">837.8</span><span class="p">,</span> <span class="mf">1.0471976</span><span class="p">,</span> <span class="o">-</span><span class="mf">200.0</span><span class="p">]</span>  <span class="c1"># 1.0471975 = 60 deg</span>
+              <span class="n">cylindrical</span><span class="p">:</span> <span class="kc">True</span>
+
+            <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">anchor3</span>
+              <span class="n">location</span><span class="p">:</span> <span class="p">[</span><span class="mf">837.8</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0471976</span><span class="p">,</span> <span class="o">-</span><span class="mf">200.0</span><span class="p">]</span>  <span class="c1">#-1.0471975 = -60 deg</span>
+              <span class="n">cylindrical</span><span class="p">:</span> <span class="kc">True</span>
+
+</pre></div>
+</div>
+<dl>
+<dt><code class="code docutils literal notranslate"><span class="pre">name</span></code><span class="classifier">String</span></dt><dd><p>Unique name of the joint (node)</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">location</span></code><span class="classifier">Array of Floats, m</span></dt><dd><p>Coordinates (x,y,z or r,θ,z) of the joint in the global coordinate system.</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">transition</span></code><span class="classifier">Boolean</span></dt><dd><p>Whether the transition piece and turbine tower attach at this node</p>
+<p><em>Default</em> = False</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">cylindrical</span></code><span class="classifier">Boolean</span></dt><dd><p>Whether to use cylindrical coordinates (r,θ,z), with (r,θ) lying in the x/y-plane, instead of Cartesian coordinates.</p>
+<p><em>Default</em> = False</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">reactions.Rx</span></code><span class="classifier">Boolean</span></dt><dd><p>True if this joint is compliant in <em>x-translation</em> in the member coordinate system,
+False if this joint is completely rigid in that direction.  For instance, a perfect
+ball joint would be Rx=Ry=Rz=False, Rxx=Ryy=Rzz=True</p>
+<p><em>Default</em> = False</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">reactions.Ry</span></code><span class="classifier">Boolean</span></dt><dd><p>True if this joint is compliant in <em>y-translation</em> in the member coordinate system,
+False if this joint is completely rigid in that direction.  For instance, a perfect
+ball joint would be Rx=Ry=Rz=False, Rxx=Ryy=Rzz=True</p>
+<p><em>Default</em> = False</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">reactions.Rz</span></code><span class="classifier">Boolean</span></dt><dd><p>True if this joint is compliant in <em>z-translation</em> in the member coordinate system,
+False if this joint is completely rigid in that direction.  For instance, a perfect
+ball joint would be Rx=Ry=Rz=False, Rxx=Ryy=Rzz=True</p>
+<p><em>Default</em> = False</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">reactions.Rxx</span></code><span class="classifier">Boolean</span></dt><dd><p>True if this joint is compliant in <em>x-rotation</em> in the member coordinate system,
+False if this joint is completely rigid in that direction.  For instance, a perfect
+ball joint would be Rx=Ry=Rz=False, Rxx=Ryy=Rzz=True</p>
+<p><em>Default</em> = False</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">reactions.Ryy</span></code><span class="classifier">Boolean</span></dt><dd><p>True if this joint is compliant in <em>y-rotation</em> in the member coordinate system,
+False if this joint is completely rigid in that direction.  For instance, a perfect
+ball joint would be Rx=Ry=Rz=False, Rxx=Ryy=Rzz=True</p>
+<p><em>Default</em> = False</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">reactions.Rzz</span></code><span class="classifier">Boolean</span></dt><dd><p>True if this joint is compliant in <em>z-rotation</em> in the member coordinate system,
+False if this joint is completely rigid in that direction.  For instance, a perfect
+ball joint would be Rx=Ry=Rz=False, Rxx=Ryy=Rzz=True</p>
+<p><em>Default</em> = False</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">reactions_global.Euler</span></code><span class="classifier">Array of Floats</span></dt><dd><p>Euler angles [alpha, beta, gamma] that describe the rotation of
+the Reaction coordinate system relative to the global coordinate
+system α is a rotation around the z axis, β is a rotation around
+the x’ axis, γ is a rotation around the z” axis.</p>
+</dd>
+</dl>
+</section>
+<section id="members">
+<h2>Members<a class="headerlink" href="#members" title="Link to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>            <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">main_column</span>
+              <span class="n">joint1</span><span class="p">:</span> <span class="n">main_keel</span>
+              <span class="n">joint2</span><span class="p">:</span> <span class="n">main_freeboard</span>
+              <span class="n">Ca</span><span class="p">:</span> <span class="mf">1.0</span>
+              <span class="n">Cd</span><span class="p">:</span> <span class="mf">0.8</span>
+              <span class="n">outer_shape</span><span class="p">:</span>
+                <span class="n">shape</span><span class="p">:</span> <span class="n">circular</span>
+                <span class="n">outer_diameter</span><span class="p">:</span>
+                    <span class="n">grid</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
+                    <span class="n">values</span><span class="p">:</span> <span class="p">[</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">]</span>
+              <span class="n">internal_structure</span><span class="p">:</span>
+                <span class="n">layers</span><span class="p">:</span>
+                    <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">main_twall</span>
+                      <span class="n">material</span><span class="p">:</span> <span class="n">steel</span>
+                      <span class="n">thickness</span><span class="p">:</span>
+                        <span class="n">grid</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
+                        <span class="n">values</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">]</span>
+                <span class="n">bulkhead</span><span class="p">:</span>
+                    <span class="n">material</span><span class="p">:</span> <span class="n">steel</span>
+                    <span class="n">thickness</span><span class="p">:</span>
+                        <span class="n">grid</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
+                        <span class="n">values</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">]</span>
+              <span class="n">axial_joints</span><span class="p">:</span>
+                <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">main_upper_pontoon</span>
+                  <span class="n">grid</span><span class="p">:</span> <span class="mf">0.987</span>
+
+                <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">main_lower_pontoon</span>
+                  <span class="n">grid</span><span class="p">:</span> <span class="mf">0.1</span>
+
+            <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">column1</span>
+              <span class="n">joint1</span><span class="p">:</span> <span class="n">col1_keel</span>
+              <span class="n">joint2</span><span class="p">:</span> <span class="n">col1_freeboard</span>
+              <span class="n">Ca</span><span class="p">:</span> <span class="mf">1.0</span>
+              <span class="n">Cd</span><span class="p">:</span> <span class="mf">0.8</span>
+              <span class="n">outer_shape</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">col_out</span>
+                <span class="n">shape</span><span class="p">:</span> <span class="n">circular</span>
+                <span class="n">outer_diameter</span><span class="p">:</span>
+                    <span class="n">grid</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
+                    <span class="n">values</span><span class="p">:</span> <span class="p">[</span><span class="mf">12.5</span><span class="p">,</span> <span class="mf">12.5</span><span class="p">]</span>
+              <span class="n">internal_structure</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">col_int</span>
+                <span class="n">layers</span><span class="p">:</span>
+                    <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">col_twall</span>
+                      <span class="n">material</span><span class="p">:</span> <span class="n">steel</span>
+                      <span class="n">thickness</span><span class="p">:</span>
+                        <span class="n">grid</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
+                        <span class="n">values</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">]</span>
+                <span class="n">bulkhead</span><span class="p">:</span>
+                    <span class="n">material</span><span class="p">:</span> <span class="n">steel</span>
+                    <span class="n">thickness</span><span class="p">:</span>
+                        <span class="n">grid</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
+                        <span class="n">values</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">]</span>
+                <span class="n">ballasts</span><span class="p">:</span>
+                    <span class="o">-</span> <span class="n">variable_flag</span><span class="p">:</span> <span class="kc">False</span>
+                      <span class="n">material</span><span class="p">:</span> <span class="n">slurry</span>
+                      <span class="n">volume</span><span class="p">:</span> <span class="mf">169.333333</span>
+                      <span class="n">grid</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">]</span>
+                    <span class="o">-</span> <span class="n">variable_flag</span><span class="p">:</span> <span class="kc">True</span>
+                      <span class="n">grid</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">]</span>
+              <span class="n">axial_joints</span><span class="p">:</span>
+                <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">col1_upper_pontoon</span>
+                  <span class="n">grid</span><span class="p">:</span> <span class="mf">0.987</span>
+
+                <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">col1_lower_pontoon</span>
+                  <span class="n">grid</span><span class="p">:</span> <span class="mf">0.1</span>
+
+                <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">col1_fairlead</span>
+                  <span class="n">grid</span><span class="p">:</span> <span class="mf">0.1714</span>
+
+            <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">column2</span>
+              <span class="n">joint1</span><span class="p">:</span> <span class="n">col2_keel</span>
+              <span class="n">joint2</span><span class="p">:</span> <span class="n">col2_freeboard</span>
+              <span class="n">Ca</span><span class="p">:</span> <span class="mf">1.0</span>
+              <span class="n">Cd</span><span class="p">:</span> <span class="mf">0.8</span>
+              <span class="n">outer_shape</span><span class="p">:</span> <span class="o">*</span><span class="n">col_out</span>
+              <span class="n">internal_structure</span><span class="p">:</span> <span class="o">*</span><span class="n">col_int</span>
+              <span class="n">axial_joints</span><span class="p">:</span>
+                <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">col2_upper_pontoon</span>
+                  <span class="n">grid</span><span class="p">:</span> <span class="mf">0.987</span>
+
+                <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">col2_lower_pontoon</span>
+                  <span class="n">grid</span><span class="p">:</span> <span class="mf">0.1</span>
+
+                <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">col2_fairlead</span>
+                  <span class="n">grid</span><span class="p">:</span> <span class="mf">0.1714</span>
+
+            <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">column3</span>
+              <span class="n">joint1</span><span class="p">:</span> <span class="n">col3_keel</span>
+              <span class="n">joint2</span><span class="p">:</span> <span class="n">col3_freeboard</span>
+              <span class="n">Ca</span><span class="p">:</span> <span class="mf">1.0</span>
+              <span class="n">Cd</span><span class="p">:</span> <span class="mf">0.8</span>
+              <span class="n">outer_shape</span><span class="p">:</span> <span class="o">*</span><span class="n">col_out</span>
+              <span class="n">internal_structure</span><span class="p">:</span> <span class="o">*</span><span class="n">col_int</span>
+              <span class="n">axial_joints</span><span class="p">:</span>
+                <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">col3_upper_pontoon</span>
+                  <span class="n">grid</span><span class="p">:</span> <span class="mf">0.987</span>
+
+                <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">col3_lower_pontoon</span>
+                  <span class="n">grid</span><span class="p">:</span> <span class="mf">0.1</span>
+
+                <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">col3_fairlead</span>
+                  <span class="n">grid</span><span class="p">:</span> <span class="mf">0.1714</span>
+
+
+            <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">Y_pontoon_upper1</span>
+              <span class="n">joint1</span><span class="p">:</span> <span class="n">main_upper_pontoon</span>
+              <span class="n">joint2</span><span class="p">:</span> <span class="n">col1_upper_pontoon</span>
+              <span class="n">Ca</span><span class="p">:</span> <span class="mf">1.0</span>
+              <span class="n">Cd</span><span class="p">:</span> <span class="mf">0.8</span>
+              <span class="n">outer_shape</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">pontup_out</span>
+                <span class="n">shape</span><span class="p">:</span> <span class="n">circular</span>
+                <span class="n">outer_diameter</span><span class="p">:</span>
+                    <span class="n">grid</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
+                    <span class="n">values</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.91</span><span class="p">,</span> <span class="mf">0.91</span><span class="p">]</span>
+              <span class="n">internal_structure</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">pontup_int</span>
+                <span class="n">layers</span><span class="p">:</span>
+                    <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">pontoon_upper_twall</span>
+                      <span class="n">material</span><span class="p">:</span> <span class="n">steel</span>
+                      <span class="n">thickness</span><span class="p">:</span>
+                        <span class="n">grid</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
+                        <span class="n">values</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">]</span>
+
+            <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">Y_pontoon_upper2</span>
+              <span class="n">joint1</span><span class="p">:</span> <span class="n">main_upper_pontoon</span>
+              <span class="n">joint2</span><span class="p">:</span> <span class="n">col2_upper_pontoon</span>
+              <span class="n">Ca</span><span class="p">:</span> <span class="mf">1.0</span>
+              <span class="n">Cd</span><span class="p">:</span> <span class="mf">0.8</span>
+              <span class="n">outer_shape</span><span class="p">:</span> <span class="o">*</span><span class="n">pontup_out</span>
+              <span class="n">internal_structure</span><span class="p">:</span> <span class="o">*</span><span class="n">pontup_int</span>
+
+            <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">Y_pontoon_upper3</span>
+              <span class="n">joint1</span><span class="p">:</span> <span class="n">main_upper_pontoon</span>
+              <span class="n">joint2</span><span class="p">:</span> <span class="n">col3_upper_pontoon</span>
+              <span class="n">Ca</span><span class="p">:</span> <span class="mf">1.0</span>
+              <span class="n">Cd</span><span class="p">:</span> <span class="mf">0.8</span>
+              <span class="n">outer_shape</span><span class="p">:</span> <span class="o">*</span><span class="n">pontup_out</span>
+              <span class="n">internal_structure</span><span class="p">:</span> <span class="o">*</span><span class="n">pontup_int</span>
+
+            <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">Y_pontoon_lower1</span>
+              <span class="n">joint1</span><span class="p">:</span> <span class="n">main_lower_pontoon</span>
+              <span class="n">joint2</span><span class="p">:</span> <span class="n">col1_lower_pontoon</span>
+              <span class="n">Ca</span><span class="p">:</span> <span class="mf">1.0</span>
+              <span class="n">Cd</span><span class="p">:</span> <span class="mf">0.8</span>
+              <span class="n">outer_shape</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">pontlow_out</span>
+                <span class="n">shape</span><span class="p">:</span> <span class="n">circular</span>
+                <span class="n">outer_diameter</span><span class="p">:</span>
+                    <span class="n">grid</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
+                    <span class="n">values</span><span class="p">:</span> <span class="p">[</span><span class="mf">9.6148</span><span class="p">,</span> <span class="mf">9.6148</span><span class="p">]</span> <span class="c1">#equates displacement not circle: [12.5, 12.5]</span>
+                <span class="c1">#shape: polygonal</span>
+                <span class="c1">#side_lengths: [12.5, 7.0, 12.5, 7.0] # rectangle dimensions</span>
+                <span class="c1">#angles: [1.5707963267948966, 1.5707963267948966, 1.5707963267948966, 1.5707963267948966] # rectangle angles</span>
+                <span class="c1">#rotation: 0.0</span>
+              <span class="n">internal_structure</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">pontlow_int</span>
+                  <span class="c1"># Probably needs longitudinal stiffeners</span>
+                <span class="n">layers</span><span class="p">:</span>
+                    <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">pontoon_lower_twall</span>
+                      <span class="n">material</span><span class="p">:</span> <span class="n">steel</span>
+                      <span class="n">thickness</span><span class="p">:</span>
+                        <span class="n">grid</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
+                        <span class="n">values</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.04</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">]</span>
+                <span class="n">ballasts</span><span class="p">:</span>
+                    <span class="o">-</span> <span class="n">variable_flag</span><span class="p">:</span> <span class="kc">True</span>
+                      <span class="n">grid</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
+
+            <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">Y_pontoon_lower2</span>
+              <span class="n">joint1</span><span class="p">:</span> <span class="n">main_lower_pontoon</span>
+              <span class="n">joint2</span><span class="p">:</span> <span class="n">col2_lower_pontoon</span>
+              <span class="n">outer_shape</span><span class="p">:</span> <span class="o">*</span><span class="n">pontlow_out</span>
+              <span class="n">internal_structure</span><span class="p">:</span> <span class="o">*</span><span class="n">pontlow_int</span>
+              <span class="n">Ca</span><span class="p">:</span> <span class="mf">1.0</span>
+              <span class="n">Cd</span><span class="p">:</span> <span class="mf">0.8</span>
+
+            <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">Y_pontoon_lower3</span>
+              <span class="n">joint1</span><span class="p">:</span> <span class="n">main_lower_pontoon</span>
+              <span class="n">joint2</span><span class="p">:</span> <span class="n">col3_lower_pontoon</span>
+              <span class="n">outer_shape</span><span class="p">:</span> <span class="o">*</span><span class="n">pontlow_out</span>
+              <span class="n">internal_structure</span><span class="p">:</span> <span class="o">*</span><span class="n">pontlow_int</span>
+              <span class="n">Ca</span><span class="p">:</span> <span class="mf">1.0</span>
+              <span class="n">Cd</span><span class="p">:</span> <span class="mf">0.8</span>
+</pre></div>
+</div>
+<dl>
+<dt><code class="code docutils literal notranslate"><span class="pre">name</span></code><span class="classifier">String</span></dt><dd><p>Name of the member</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">joint1</span></code><span class="classifier">String</span></dt><dd><p>Name of joint/node connection</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">joint2</span></code><span class="classifier">String</span></dt><dd><p>Name of joint/node connection</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">hydrodynamic_approach</span></code><span class="classifier">String from, [‘strip’, ‘potential’, ‘both’]</span></dt><dd><p>(Optional) How should this member be modeled?</p>
+<p><em>Default</em> = strip</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">Ca</span></code><span class="classifier">Float</span></dt><dd><p>(Optional) Added mass coefficient</p>
+<p><em>Default</em> = 0.0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">Cp</span></code><span class="classifier">Float</span></dt><dd><p>(Optional) Pressure coefficient</p>
+<p><em>Default</em> = 0.0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">Cd</span></code><span class="classifier">Float</span></dt><dd><p>(Optional) Drag coefficient</p>
+<p><em>Default</em> = 0.0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">outer_shape.shape</span></code><span class="classifier">String from, [‘circular’, ‘polygonal’]</span></dt><dd><p>Specifies cross-sectional shape of the member.  If circular, then the
+<code class="code docutils literal notranslate"><span class="pre">outer_diameter</span></code> field is required.  If polygonal, then the <code class="code docutils literal notranslate"><span class="pre">side_lengths</span></code>,
+<code class="code docutils literal notranslate"><span class="pre">angles</span></code>, and <code class="code docutils literal notranslate"><span class="pre">rotation</span></code> fields are required</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">outer_shape.outer_diameter.grid</span></code><span class="classifier">Array of floats, m</span></dt><dd><p>Non-dimensional points along member axis from 0.0 at <code class="code docutils literal notranslate"><span class="pre">joint1</span></code> to 1.0 at <code class="code docutils literal notranslate"><span class="pre">joint2</span></code>
+at which the diameter is defined</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">outer_shape.outer_diameter.values</span></code><span class="classifier">Array of floats, m</span></dt><dd><p>Diameters of the member defined at the non-dimensional grid points</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">outer_shape.side_lengths1</span></code><span class="classifier">Array of Floats, m</span></dt><dd><p>Polygon side lengths at joint1</p>
+<p><em>Minimum</em> = 0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">outer_shape.side_lengths2</span></code><span class="classifier">Array of Floats, m</span></dt><dd><p>Polygon side lengths at joint1</p>
+<p><em>Minimum</em> = 0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">outer_shape.angles</span></code><span class="classifier">Array of Floats, rad</span></dt><dd><p>Polygon angles with the ordering such that angle[i] is between
+side_length[i] and side_length[i+1]</p>
+<p><em>Minimum</em> = 0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">outer_shape.rotation</span></code><span class="classifier">Float, rad</span></dt><dd><p>Angle between principle axes of the cross-section and the member
+coordinate system.  Essentially the rotation of the member if both
+joints were placed on the global x-y axis with the first side
+length along the z-axis</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">internal_structure.outfitting_factor</span></code><span class="classifier">Float</span></dt><dd><p>Scaling factor for the member mass to account for auxiliary
+structures, such as elevator, ladders, cables, platforms,
+fasteners, etc</p>
+<p><em>Default</em> = 1.0</p>
+<p><em>Minimum</em> = 1.0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">internal_structure.layers.name</span></code><span class="classifier">String</span></dt><dd><p>structural component identifier</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">internal_structure.layers.material</span></code><span class="classifier">String</span></dt><dd><p>material identifier</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">internal_structure.layers.thickness.grid</span></code><span class="classifier">Array of floats, m</span></dt><dd><p>Non-dimensional points along member axis from 0.0 at <code class="code docutils literal notranslate"><span class="pre">joint1</span></code> to 1.0 at <code class="code docutils literal notranslate"><span class="pre">joint2</span></code>
+at which the thickness is defined</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">internal_structure.layers.thickness.values</span></code><span class="classifier">Array of floats, m</span></dt><dd><p>Thickness of the member defined at the non-dimensional grid points</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">internal_structure.bulkhead.material</span></code><span class="classifier">String</span></dt><dd><p>material identifier for the bulkheads</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">internal_structure.bulkhead.grid</span></code><span class="classifier">Array of floats</span></dt><dd><p>Non-dimensional points along member axis from 0.0 at <code class="code docutils literal notranslate"><span class="pre">joint1</span></code> to 1.0 at <code class="code docutils literal notranslate"><span class="pre">joint2</span></code>
+where bulkheads are located</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">internal_structure.bulkhead.values</span></code><span class="classifier">Array of floats, m</span></dt><dd><p>Bulkhead thickness defined at the non-dimensional grid points</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">internal_structure.ballast.variable_flag</span></code><span class="classifier">Boolean</span></dt><dd><p>If true, then this ballast is variable and adjusted by control
+system.  If false, then considered permanent and the <code class="code docutils literal notranslate"><span class="pre">material</span></code> and
+<code class="code docutils literal notranslate"><span class="pre">volume</span></code> entries are required</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">internal_structure.ballast.material</span></code><span class="classifier">String</span></dt><dd><p>Material identifier</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">internal_structure.ballast.volume</span></code><span class="classifier">Float, m^3</span></dt><dd><p>Total volume of ballast (permanent ballast only)</p>
+<p><em>Minimum</em> = 0</p>
+</dd>
+</dl>
+<section id="stiffeners">
+<h3>Stiffeners<a class="headerlink" href="#stiffeners" title="Link to this heading">#</a></h3>
+<p>Both internal <code class="code docutils literal notranslate"><span class="pre">ring_stiffeners</span></code> and <code class="code docutils literal notranslate"><span class="pre">longitudinal_stiffeners</span></code> can be specified with the <code class="code docutils literal notranslate"><span class="pre">internal_structure</span></code> section of a Member.  Stiffeners are defined by their material, spacing, and 4 dimensions, illustrated in this diagram,</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/stiffenerZoom.png"><img alt="../_images/stiffenerZoom.png" src="../_images/stiffenerZoom.png" style="width: 200px;" />
+</a>
+</div></blockquote>
+<dl class="simple">
+<dt><code class="code docutils literal notranslate"><span class="pre">material</span></code><span class="classifier">String</span></dt><dd><p>material identifier</p>
+</dd>
+</dl>
+<p><code class="code docutils literal notranslate"><span class="pre">flange_height</span></code> : Float, m</p>
+<blockquote>
+<div><p><em>Minimum</em> = 0</p>
+</div></blockquote>
+<p><code class="code docutils literal notranslate"><span class="pre">flange_width</span></code> : Float, m</p>
+<blockquote>
+<div><p><em>Minimum</em> = 0</p>
+</div></blockquote>
+<p><code class="code docutils literal notranslate"><span class="pre">web_height</span></code> : Float, m</p>
+<blockquote>
+<div><p><em>Minimum</em> = 0</p>
+</div></blockquote>
+<p><code class="code docutils literal notranslate"><span class="pre">web_thickness</span></code> : Float, m</p>
+<blockquote>
+<div><p><em>Minimum</em> = 0</p>
+</div></blockquote>
+<dl>
+<dt><code class="code docutils literal notranslate"><span class="pre">spacing</span></code><span class="classifier">Float, m</span></dt><dd><p>Spacing between stiffeners in non-dimensional grid coordinates. Value of 1.0 means no stiffeners</p>
+<p><em>Minimum</em> = 0</p>
+</dd>
+</dl>
+</section>
+<section id="axial-joints">
+<h3>axial_joints<a class="headerlink" href="#axial-joints" title="Link to this heading">#</a></h3>
+<p>Additional joints that are defined along the non-dimensional member axis can be defined here.  Unlike the joints defined in the global coordinate system in the <code class="code docutils literal notranslate"><span class="pre">joints</span></code> section of the ontology, these joints will change their absolute (x,y,z) location if the member diameter is altered the or <code class="code docutils literal notranslate"><span class="pre">joint1</span></code> or <code class="code docutils literal notranslate"><span class="pre">joint2</span></code> locations are changed during an optimization.  This is especially useful when designing a truss-like structure with pontoons attaching to primary members or columns in a semisubmersible. Like the joints above, these must be given a unique name.</p>
+<dl>
+<dt><code class="code docutils literal notranslate"><span class="pre">name</span></code><span class="classifier">String</span></dt><dd><p>Unique name of joint</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">grid</span></code><span class="classifier">Float</span></dt><dd><p>Non-dimensional value along member axis</p>
+<p><em>Minimum</em> = 0.0    <em>Maximum</em> = 1.0</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="rigid-bodies">
+<h2>Rigid bodies<a class="headerlink" href="#rigid-bodies" title="Link to this heading">#</a></h2>
+<p>There is an allowance for additional point masses at joints with user-customized properties.  This would be useful in modeling ???.</p>
+<dl>
+<dt><code class="code docutils literal notranslate"><span class="pre">joint1</span></code><span class="classifier">String</span></dt><dd><p>Name of joint/node connection</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">mass</span></code><span class="classifier">Float, kg</span></dt><dd><p>Mass of this rigid body</p>
+<p><em>Minimum</em> = 0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">cost</span></code><span class="classifier">Float, USD</span></dt><dd><p>Cost of this rigid body</p>
+<p><em>Minimum</em> = 0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">cm_offset</span></code><span class="classifier">Array of Floats, m</span></dt><dd><p>Offset from joint location to center of mass (CM) of body in dx,
+dy, dz</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">moments_of_inertia</span></code><span class="classifier">Array of Floats, kg*m^2</span></dt><dd><p>Moments of inertia around body CM in Ixx, Iyy, Izz</p>
+<p><em>Minimum</em> = 0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">hydrodynamic_approach</span></code><span class="classifier">String from, [‘strip’, ‘potential’, ‘both’]</span></dt><dd><p>How should this member be modeled?</p>
+<p><em>Default</em> = strip</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">Ca</span></code><span class="classifier">Float</span></dt><dd><p>Added mass coefficient</p>
+<p><em>Default</em> = 0.0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">Cp</span></code><span class="classifier">Float</span></dt><dd><p>Pressure coefficient</p>
+<p><em>Default</em> = 0.0</p>
+</dd>
+<dt><code class="code docutils literal notranslate"><span class="pre">Cd</span></code><span class="classifier">Float</span></dt><dd><p>Drag coefficient</p>
+<p><em>Default</em> = 0.0</p>
+</dd>
+</dl>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="monopile.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Monopile</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="mooring.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Mooring</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#joints">Joints</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#members">Members</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stiffeners">Stiffeners</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#axial-joints">axial_joints</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rigid-bodies">Rigid bodies</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/source/floating.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2020, IEA Wind Task 37.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
