@@ -13,6 +13,12 @@ properties:
   name:
     title: Name
     description: Name of the wind energy system
+      before image
+
+      ![an image](./images/layer1.png)
+
+      after image
+
     type: string
   #~
   site:
